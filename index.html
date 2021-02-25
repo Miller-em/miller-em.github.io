@@ -221,7 +221,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-02-25 19:44:03 / 修改时间：20:32:30" itemprop="dateCreated datePublished" datetime="2021-02-25T19:44:03+08:00">2021-02-25</time>
+              <time title="创建时间：2021-02-25 19:44:03 / 修改时间：20:43:45" itemprop="dateCreated datePublished" datetime="2021-02-25T19:44:03+08:00">2021-02-25</time>
             </span>
 
           
@@ -236,28 +236,28 @@
 
       
           <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>我是在<strong>Ubuntu 20.04</strong> 下面搭建的博客，所以下面记录操作的命令都是针对于Ubuntu下面的命令。对于Windows下面的搭建，现在暂时还没有尝试，以后遇到了再更新操作。特别说明该个人博客是基于<strong>hexo</strong>框架搭建的，服务端是交于<strong>github</strong>管理的。</p>
-<h2 id="一、安装nodejs-npm"><a href="#一、安装nodejs-npm" class="headerlink" title="一、安装nodejs, npm"></a>一、安装nodejs, npm</h2><p>因为hexo框架是依赖于nodejs，所以我们需要先安装好<strong>nodejs</strong>和包管理器<strong>nmp</strong>。</p>
+<h2 id="安装nodejs-npm"><a href="#安装nodejs-npm" class="headerlink" title="安装nodejs, npm"></a>安装nodejs, npm</h2><p>因为hexo框架是依赖于nodejs，所以我们需要先安装好<strong>nodejs</strong>和包管理器<strong>nmp</strong>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install nodejs nmp</span><br></pre></td></tr></table></figure>
 
 <p>查看是否安装成功：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node --version</span><br><span class="line">npm --version</span><br></pre></td></tr></table></figure>
 
 <p>正常输出就安装成功了。</p>
-<h2 id="二、安装cnmp"><a href="#二、安装cnmp" class="headerlink" title="二、安装cnmp"></a>二、安装cnmp</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<h2 id="安装cnmp"><a href="#安装cnmp" class="headerlink" title="安装cnmp"></a>安装cnmp</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
 
 <p>这里要加入源，我用的是taobao源。检查一下安装：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnmp -v</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="三、安装hexo框架"><a href="#三、安装hexo框架" class="headerlink" title="三、安装hexo框架"></a>三、安装hexo框架</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cnmp install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h2 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cnmp install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
 <p>检查一下安装：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="四、创建博客目录并初始化"><a href="#四、创建博客目录并初始化" class="headerlink" title="四、创建博客目录并初始化"></a>四、创建博客目录并初始化</h2><p>我在家目录下面创建了一个<code>~/PersonalBlog/</code>，命令如下：</p>
+<h2 id="创建博客目录并初始化"><a href="#创建博客目录并初始化" class="headerlink" title="创建博客目录并初始化"></a>创建博客目录并初始化</h2><p>我在家目录下面创建了一个<code>~/PersonalBlog/</code>，命令如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir PersonalBlog &amp;&amp; cd PersonalBlog</span><br></pre></td></tr></table></figure>
 
 <p><strong>hexo</strong>初始化：</p>
@@ -268,7 +268,7 @@
 
 <p>点击<a href="http://localhost:4000，博客页面在本地就有了。">http://localhost:4000，博客页面在本地就有了。</a></p>
 <p><img src="/home/miller/.config/Typora/typora-user-images/image-20210225150228015.png" alt="image-20210225150228015"></p>
-<h2 id="五、创建第一篇博客"><a href="#五、创建第一篇博客" class="headerlink" title="五、创建第一篇博客"></a>五、创建第一篇博客</h2><p>创建第一篇博客：</p>
+<h2 id="创建第一篇博客"><a href="#创建第一篇博客" class="headerlink" title="创建第一篇博客"></a>创建第一篇博客</h2><p>创建第一篇博客：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;My First Blog&quot;</span><br></pre></td></tr></table></figure>
 
 <p>然后vim向 <code>~/PersonalBlog/source/_posts/My-First-Blog.md</code> 随便写入：</p>
@@ -279,7 +279,7 @@
 
 <p>看看效果：</p>
 <p><img src="/home/miller/.config/Typora/typora-user-images/image-20210225151202400.png" alt="image-20210225151202400"></p>
-<h2 id="六、github服务端部署"><a href="#六、github服务端部署" class="headerlink" title="六、github服务端部署"></a>六、github服务端部署</h2><p>在github账户下创建一个仓库，仓库名必须是：<strong>xxx.github.io</strong>，所以我的就是<code>miller-em.github.io</code>，欢迎访问，哈哈哈。</p>
+<h2 id="github服务端部署"><a href="#github服务端部署" class="headerlink" title="github服务端部署"></a>github服务端部署</h2><p>在github账户下创建一个仓库，仓库名必须是：<strong>xxx.github.io</strong>，所以我的就是<code>miller-em.github.io</code>，欢迎访问，哈哈哈。</p>
 <p>安装hexo-deployer-git:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
 
@@ -294,14 +294,14 @@
 <p>输入你的github用户名和密码，成功后在浏览器输入：xxx.github.io，看看效果：</p>
 <p><img src="/home/miller/.config/Typora/typora-user-images/image-20210225152856570.png" alt="image-20210225152856570"></p>
 <p>到这里，你的个人博客搭建就完成了！</p>
-<h2 id="七、主题安装"><a href="#七、主题安装" class="headerlink" title="七、主题安装"></a>七、主题安装</h2><p>我觉得原始主题不太符合我的style，所以我就换了一个主题。我用的是nexT主题，黑白配色简约淡雅。</p>
+<h2 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h2><p>我觉得原始主题不太符合我的style，所以我就换了一个主题。我用的是nexT主题，黑白配色简约淡雅。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next.git themes&#x2F;next</span><br></pre></td></tr></table></figure>
 
 <p>修改<code>_config.yml</code>，将主题改为next：</p>
 <p><img src="/home/miller/.config/Typora/typora-user-images/image-20210225154612415.png" alt="image-20210225154612415"></p>
 <p>效果：</p>
 <p><img src="/home/miller/.config/Typora/typora-user-images/image-20210225154647310.png" alt="image-20210225154647310"></p>
-<h2 id="八、配置NexT"><a href="#八、配置NexT" class="headerlink" title="八、配置NexT"></a>八、配置NexT</h2><ol>
+<h2 id="配置NexT"><a href="#配置NexT" class="headerlink" title="配置NexT"></a>配置NexT</h2><ol>
 <li><p>设置博客根目录下_config.yml：</p>
 <p><img src="/home/miller/.config/Typora/typora-user-images/image-20210225172652585.png" alt="image-20210225172652585"></p>
 </li>
