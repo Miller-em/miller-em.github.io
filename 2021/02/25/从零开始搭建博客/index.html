@@ -17,33 +17,33 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"xiaozhoua.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"miller-em.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="说明我是在Ubuntu 20.04 下面搭建的博客，所以下面记录操作的命令都是针对于Ubuntu下面的命令。对于Windows下面的搭建，现在暂时还没有尝试，以后遇到了再更新操作。特别说明该个人博客是基于hexo框架搭建的，服务端是交于github管理的。 安装nodejs, npm因为hexo框架是依赖于nodejs，所以我们需要先安装好nodejs和包管理器nmp。 12sudo apt-ge">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始搭建个人博客">
-<meta property="og:url" content="https://xiaozhoua.top/2021/02/25/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:url" content="https://miller-em.github.io/2021/02/25/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="小周的个人博客">
 <meta property="og:description" content="说明我是在Ubuntu 20.04 下面搭建的博客，所以下面记录操作的命令都是针对于Ubuntu下面的命令。对于Windows下面的搭建，现在暂时还没有尝试，以后遇到了再更新操作。特别说明该个人博客是基于hexo框架搭建的，服务端是交于github管理的。 安装nodejs, npm因为hexo框架是依赖于nodejs，所以我们需要先安装好nodejs和包管理器nmp。 12sudo apt-ge">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xiaozhoua.top/home/miller/.config/Typora/typora-user-images/image-20210225150228015.png">
-<meta property="og:image" content="https://xiaozhoua.top/home/miller/.config/Typora/typora-user-images/image-20210225150818908.png">
-<meta property="og:image" content="https://xiaozhoua.top/home/miller/.config/Typora/typora-user-images/image-20210225151202400.png">
-<meta property="og:image" content="https://xiaozhoua.top/home/miller/.config/Typora/typora-user-images/image-20210225152217469.png">
-<meta property="og:image" content="https://xiaozhoua.top/home/miller/.config/Typora/typora-user-images/image-20210225152856570.png">
-<meta property="og:image" content="https://xiaozhoua.top/home/miller/.config/Typora/typora-user-images/image-20210225154612415.png">
-<meta property="og:image" content="https://xiaozhoua.top/home/miller/.config/Typora/typora-user-images/image-20210225154647310.png">
-<meta property="og:image" content="https://xiaozhoua.top/home/miller/.config/Typora/typora-user-images/image-20210225172652585.png">
-<meta property="og:image" content="https://xiaozhoua.top/home/miller/.config/Typora/typora-user-images/image-20210225172805979.png">
+<meta property="og:image" content="https://miller-em.github.io/home/miller/.config/Typora/typora-user-images/image-20210225150228015.png">
+<meta property="og:image" content="https://miller-em.github.io/home/miller/.config/Typora/typora-user-images/image-20210225150818908.png">
+<meta property="og:image" content="https://miller-em.github.io/home/miller/.config/Typora/typora-user-images/image-20210225151202400.png">
+<meta property="og:image" content="https://miller-em.github.io/home/miller/.config/Typora/typora-user-images/image-20210225152217469.png">
+<meta property="og:image" content="https://miller-em.github.io/home/miller/.config/Typora/typora-user-images/image-20210225152856570.png">
+<meta property="og:image" content="https://miller-em.github.io/home/miller/.config/Typora/typora-user-images/image-20210225154612415.png">
+<meta property="og:image" content="https://miller-em.github.io/home/miller/.config/Typora/typora-user-images/image-20210225154647310.png">
+<meta property="og:image" content="https://miller-em.github.io/home/miller/.config/Typora/typora-user-images/image-20210225172652585.png">
+<meta property="og:image" content="https://miller-em.github.io/home/miller/.config/Typora/typora-user-images/image-20210225172805979.png">
 <meta property="article:published_time" content="2021-02-25T11:44:03.000Z">
 <meta property="article:modified_time" content="2021-02-25T12:43:45.098Z">
 <meta property="article:author" content="Miller-em">
 <meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://xiaozhoua.top/home/miller/.config/Typora/typora-user-images/image-20210225150228015.png">
+<meta name="twitter:image" content="https://miller-em.github.io/home/miller/.config/Typora/typora-user-images/image-20210225150228015.png">
 
-<link rel="canonical" href="https://xiaozhoua.top/2021/02/25/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
+<link rel="canonical" href="https://miller-em.github.io/2021/02/25/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
 
 
 <script id="page-configurations">
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xiaozhoua.top/2021/02/25/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="https://miller-em.github.io/2021/02/25/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -589,31 +589,6 @@ $(document).ready(function() {
 
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
 
 
 
