@@ -112,8 +112,4 @@ deploy:
   repo: https://github.com/Miller-em/miller-em.github.io.git
   branch: master
   
-- type: git
-  repo: git@gitee.com:Miller_2001/miller_2001.git
-  branch: master
-
 - type: baidu_url_submitter ## 添加这里内容即可
