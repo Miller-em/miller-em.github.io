@@ -3,7 +3,7 @@ title: 利用Pytorch训练一个图像分类器
 date: 2021-02-26 20:00:29
 tags: ['pytorch', 'python', 'classfication', 'CV']
 categories: 深度学习
-top: true
+top: false
 ---
 
 ## 引言
