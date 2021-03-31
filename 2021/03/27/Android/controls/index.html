@@ -33,13 +33,15 @@
 <meta property="og:site_name" content="小周的个人博客">
 <meta property="og:description" content="引言任何GUI的设计，入门的话，一定是控件的使用。前面学过PyQt ，有一些基本的GUI的设计思想。所以对于安卓部分的话，控件还是很容易上手的。主要是需要熟悉一下Android Studio的使用方法，以及生成的工程结构。在Android Studio里面，我们想要使用一个控件的话，是直接对XML文件进行编写，所以对于基本的XML文件的书写，要熟悉XML的语法。下面我将会介绍常用的几个Androi">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210330214236.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210331194049.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210331215525.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210331220029.png">
 <meta property="article:published_time" content="2021-03-27T09:12:25.497Z">
-<meta property="article:modified_time" content="2021-03-30T13:48:12.710Z">
+<meta property="article:modified_time" content="2021-03-31T15:32:52.190Z">
 <meta property="article:author" content="Miller-em">
 <meta property="article:tag" content="Android">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210330214236.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210331194049.png">
 
 <link rel="canonical" href="https://xiaozhoua.top/2021/03/27/Android/controls/">
 
@@ -235,7 +237,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-30 21:48:12" itemprop="dateModified" datetime="2021-03-30T21:48:12+08:00">2021-03-30</time>
+                <time title="修改时间：2021-03-31 23:32:52" itemprop="dateModified" datetime="2021-03-31T23:32:52+08:00">2021-03-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -290,8 +292,37 @@
 </ul>
 </blockquote>
 <p>使用效果实例：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210330214236.png" alt="image-20210330214235832"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210331194049.png" alt="image-20210331194048904"></p>
+<h2 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h2><p>按键也是控件里面重要性占比最大的，这里就介绍一下Button控件该如何使用。首先还是介绍一下常用的几个方法：</p>
+<p><strong>StateListDrawable</strong></p>
+<p>StateListDrawable是Drawable资源的一种，可以根据不同的状态，设置不同的图片效果，关键节点&lt; selector &gt;，我们只需要将Button的 background属性设置为该drawable资源即可轻松实现，按下按钮时不同的按钮颜色或背景。</p>
+<blockquote>
+<ul>
+<li>drawable：引用的Drawable位图</li>
+<li>state_focused：是否获取焦点</li>
+<li>state_pressed：控件是否被按下</li>
+<li>state_enabled：控件是否可用</li>
+<li>state_selected：控件是否被选择，针对有滚轮的情况</li>
+<li>state_checked：控件是否被勾选</li>
+<li>state_checkable：控件可否被勾选，eg:checkbox</li>
+</ul>
+</blockquote>
+<p><strong>Button事件处理</strong></p>
+<ul>
+<li>点击事件</li>
+<li>长按事件</li>
+<li>触摸事件</li>
+</ul>
+<p>使用效果如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210331215525.png" alt="image-20210331215525650"></p>
+<p>其中的<code>backgroud</code>和<code>backgroundTink</code> 里面的值，分别是在drawable文件夹下面创建的selector，和在color文件夹下面的selector。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210331220029.png" alt="image-20210331220029489"></p>
+<p>对于按键事件的触发，是在<code>MainActivity.java</code>里面添加，下面就是MainActivity的代码示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.mybutton;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"><span class="keyword">import</span> android.view.MotionEvent;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">&quot;Miller&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        View btn = findViewById(R.id.btn);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//点击事件</span></span><br><span class="line">        btn.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                Log.e(TAG, <span class="string">&quot;onClick: &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//长按事件</span></span><br><span class="line">        btn.setOnLongClickListener(<span class="keyword">new</span> View.OnLongClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onLongClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                Log.e(TAG, <span class="string">&quot;onLongClick: &quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//触摸事件</span></span><br><span class="line">        btn.setOnTouchListener(<span class="keyword">new</span> View.OnTouchListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View v, MotionEvent event)</span> </span>&#123;</span><br><span class="line">                Log.e(TAG, <span class="string">&quot;onTouch: &quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
+
+<h2 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h2>
     </div>
 
     
@@ -371,7 +402,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TextView"><span class="nav-number">2.</span> <span class="nav-text">TextView</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TextView"><span class="nav-number">2.</span> <span class="nav-text">TextView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Button"><span class="nav-number">3.</span> <span class="nav-text">Button</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EditText"><span class="nav-number">4.</span> <span class="nav-text">EditText</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
