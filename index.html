@@ -198,6 +198,90 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xiaozhoua.top/2021/04/08/questions/ssh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Miller-em">
+      <meta itemprop="description" content="AI视觉爱好者，热衷于研究深度学习算法，喜欢做CV相关的工作，常用框架为：PaddlePaddle, Pytorch...本站主要记录日常学习到的技术心得，也希望分享给大家一起学习~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小周的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/08/questions/ssh/" class="post-title-link" itemprop="url">Bad owner or permissions on .ssh/config Windows 10</a>
+        </h2>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-08 19:23:12 / 修改时间：19:33:34" itemprop="dateCreated datePublished" datetime="2021-04-08T19:23:12+08:00">2021-04-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BF%9C%E7%A8%8B%E5%BC%80%E5%8F%91%E6%93%8D%E4%BD%9C/" itemprop="url" rel="index"><span itemprop="name">远程开发操作</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>最近想尝试在vscode中用remote ssh插件尝试远程开发，可是几次没有成功，在cmd里面输入<code>ssh xx@ip</code>，提示了 <code>Bad owner or permissions on .ssh/config</code> 这个报错，就是如图中的问题:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210408193114.png" alt="image-20210408193114481"></p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol>
+<li>找到.ssh文件夹。它通常位于C:\Users\，例如C:\Users\xxxx。</li>
+<li>右键单击.ssh文件夹，然后单击“属性”。</li>
+<li>找到并点击“安全”标签。</li>
+<li>然后单击“高级”。</li>
+<li>单击“禁用继承”，单击“确定”。</li>
+<li>将出现警告弹出窗口。单击“从此对象中删除所有继承的权限”。</li>
+<li>你会注意到所有用户都将被删除。让我们添加所有者。在同一窗口中，单击“编辑”按钮。</li>
+<li>接下来，单击“添加”以显示“选择用户或组”窗口。</li>
+<li>单击“高级”，然后单击“立即查找”按钮。应显示用户结果列表。</li>
+<li>选择您的用户帐户。</li>
+<li>然后单击“确定”（大约三次）以关闭所有窗口。</li>
+</ol>
+<p>完成所有操作后，再次关闭并打开cmd应用程序并尝试连接到远程SSH主机。现在这个问题应该解决了，同时在vscode也就可以成功连接了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://xiaozhoua.top/2021/03/27/Android/controls/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -230,7 +314,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-31 23:32:52" itemprop="dateModified" datetime="2021-03-31T23:32:52+08:00">2021-03-31</time>
+                <time title="修改时间：2021-04-01 22:30:38" itemprop="dateModified" datetime="2021-04-01T22:30:38+08:00">2021-04-01</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -593,20 +677,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
