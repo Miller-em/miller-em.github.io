@@ -38,4 +38,173 @@ top: false
 
 使用效果实例：
 
-![image-20210330214235832](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210330214236.png)
+![image-20210331194048904](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210331194049.png)
+
+
+
+## Button
+
+按键也是控件里面重要性占比最大的，这里就介绍一下Button控件该如何使用。首先还是介绍一下常用的几个方法：
+
+**StateListDrawable**
+
+StateListDrawable是Drawable资源的一种，可以根据不同的状态，设置不同的图片效果，关键节点< selector >，我们只需要将Button的 background属性设置为该drawable资源即可轻松实现，按下按钮时不同的按钮颜色或背景。
+
+> - drawable：引用的Drawable位图
+> - state_focused：是否获取焦点
+> - state_pressed：控件是否被按下
+> - state_enabled：控件是否可用
+> - state_selected：控件是否被选择，针对有滚轮的情况
+> - state_checked：控件是否被勾选
+> - state_checkable：控件可否被勾选，eg:checkbox
+
+
+
+**Button事件处理**
+
+- 点击事件
+- 长按事件
+- 触摸事件
+
+
+
+使用效果如下：
+
+![image-20210331215525650](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210331215525.png)
+
+其中的`backgroud`和`backgroundTink` 里面的值，分别是在drawable文件夹下面创建的selector，和在color文件夹下面的selector。
+
+![image-20210331220029489](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210331220029.png)
+
+
+
+对于按键事件的触发，是在`MainActivity.java`里面添加，下面就是MainActivity的代码示例：
+
+```java
+package com.example.mybutton;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+
+public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "Miller";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        View btn = findViewById(R.id.btn);
+
+        //点击事件
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e(TAG, "onClick: ");
+            }
+        });
+
+        //长按事件
+        btn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Log.e(TAG, "onLongClick: ");
+                return false;
+            }
+        });
+
+        //触摸事件
+        btn.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.e(TAG, "onTouch: ");
+                return false;
+            }
+        });
+    }
+}
+```
+
+
+
+## EditText
+
+这是一个文本的输入框，也是一个必须掌握的控件。先介绍常用的方法：
+
+- android:hint   输入提示
+- android:textColorHint  输入提示文字的颜色
+- android:inputType  输入类型
+- android:drawableXxxx  在输入框的指定方向添加图片
+- android:drawablePaddling  设置图片与输入内容的间距
+- android:paddingXxxx  设置内容与边框的间距
+- android:background  背景色
+
+
+
+在Android Studio里面的使用的如下：
+
+![image-20210401163542564](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210401163542.png)
+
+
+
+## ImageView
+
+这是一个显示图片的控件，有时候我们需要用图片填充我们的界面，所以还是要学习一下的，他的常用方法如下：
+
+- android:src 设置图片资源                                     
+- android:scaleType 设置图片缩放类型
+- android:maxHeight 最大高度
+- android:maxWidth 最大宽度
+- android:adjustViewBounds 调整View的界限
+
+值得注意的是还有图片的缩放类型：
+
+- fitStart  保持宽高比缩放图片，直到较长的边与Image的边长相等，缩放完成后将图片放在ImageView的左上角
+- fitEnd  同上，缩放后放于右下角
+4. fitXY  对图像的横纵方向进行独立缩放，使得该图片完全适应lmageView，但是图片的宽高比可能会发生改变
+4. center 保持原图的大小，显示在lmageView的中心。当原图的size大于lmageVview的size，超过部分裁剪处理。
+4. centerCrop 保持宽高比缩放图片，直到完全覆盖lmageView，可能会出现图片的显示不完全
+7. centerInside  保持宽高比缩放图片，直到ImageView能够完全地显示图片
+8. matrix 不改变原图的大小，从lmageView的左上角开始绘制原图，原图超过lmageVview的部分作裁剪处理
+
+实验示例：
+
+![image-20210401194646607](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210401194646.png)
+
+
+
+## ProgressBar
+
+这是一个进度条的控件，常用的方法如下：
+
+- android:max: 进度条的最大值
+
+- android:progress: 进度条已完成进度值
+
+- android:indeterminate: 如果设置成true,则进度条不精确显示进度
+
+- style="?android:attr/progressBarStyleHorizontal" 水平进度条
+
+实践示例：
+
+![image-20210401203614181](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210401203614.png)
+
+效果：
+
+<img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210401203650.png" alt="image-20210401203650421" style="zoom:25%;" />
+
+
+
+## Notification
+
+这里介绍一下，通知的使用。要想使用通知组件，需要创建两个对象，一个是NotificationManager，一个是Notification。
+
+- 创建一个NotificationManager
+  NotificationManager类是一个**通知管理器类**， 这个对象是由系统维护的服务，是以单例模式的方式获得，所以一般并不直接实例化这个对象。在Activity中， 可以使用`Activity.getSystemService(String)`方法获取**NotificationManager**对象，Activity.getSystemService(String)方法可以通过Android系统级服务的句柄，返回对应的对象。在这里需要返回NotificationManager,所以直接传递Context.NOTIFICATION SERVICE即可 。
+- 使用**Bilder**构造器来创建Notification对象
+  使用NotificationCompat类的Builder构造器来创建Notification对象，可以保证程序在所有的版本上都能正常工作。Android8.0新增了通知渠道这个概念，如果没有设置，则通知无法在Android8.0的机器上显示
