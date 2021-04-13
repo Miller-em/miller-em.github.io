@@ -323,9 +323,6 @@
 <p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210331220029.png" alt="image-20210331220029489"></p>
 <p>对于按键事件的触发，是在<code>MainActivity.java</code>里面添加，下面就是MainActivity的代码示例：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.mybutton;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> androidx.appcompat.app.AppCompatActivity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"><span class="keyword">import</span> android.view.MotionEvent;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">&quot;Miller&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        View btn = findViewById(R.id.btn);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//点击事件</span></span><br><span class="line">        btn.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                Log.e(TAG, <span class="string">&quot;onClick: &quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//长按事件</span></span><br><span class="line">        btn.setOnLongClickListener(<span class="keyword">new</span> View.OnLongClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onLongClick</span><span class="params">(View v)</span> </span>&#123;</span><br><span class="line">                Log.e(TAG, <span class="string">&quot;onLongClick: &quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//触摸事件</span></span><br><span class="line">        btn.setOnTouchListener(<span class="keyword">new</span> View.OnTouchListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View v, MotionEvent event)</span> </span>&#123;</span><br><span class="line">                Log.e(TAG, <span class="string">&quot;onTouch: &quot;</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h2><p>这是一个文本的输入框，也是一个必须掌握的控件。先介绍常用的方法：</p>
 <ul>
 <li>android:hint   输入提示</li>
@@ -351,7 +348,7 @@
 <li>fitStart  保持宽高比缩放图片，直到较长的边与Image的边长相等，缩放完成后将图片放在ImageView的左上角</li>
 <li>fitEnd  同上，缩放后放于右下角</li>
 </ul>
-<ol start="4">
+<ol>
 <li>fitXY  对图像的横纵方向进行独立缩放，使得该图片完全适应lmageView，但是图片的宽高比可能会发生改变</li>
 <li>center 保持原图的大小，显示在lmageView的中心。当原图的size大于lmageVview的size，超过部分裁剪处理。</li>
 <li>centerCrop 保持宽高比缩放图片，直到完全覆盖lmageView，可能会出现图片的显示不完全</li>
@@ -374,10 +371,7 @@
 <p>实践示例：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210401203614.png" alt="image-20210401203614181"></p>
 <p>效果：</p>
-<img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210401203650.png" alt="image-20210401203650421" style="zoom:25%;" />
-
-
-
+<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210401203650.png" alt="image-20210401203650421" style="zoom:25%;" /></p>
 <h2 id="Notification"><a href="#Notification" class="headerlink" title="Notification"></a>Notification</h2><p>这里介绍一下，通知的使用。要想使用通知组件，需要创建两个对象，一个是NotificationManager，一个是Notification。</p>
 <ul>
 <li>创建一个NotificationManager<br>NotificationManager类是一个<strong>通知管理器类</strong>， 这个对象是由系统维护的服务，是以单例模式的方式获得，所以一般并不直接实例化这个对象。在Activity中， 可以使用<code>Activity.getSystemService(String)</code>方法获取<strong>NotificationManager</strong>对象，Activity.getSystemService(String)方法可以通过Android系统级服务的句柄，返回对应的对象。在这里需要返回NotificationManager,所以直接传递Context.NOTIFICATION SERVICE即可 。</li>
@@ -482,20 +476,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -643,6 +637,8 @@ $(document).ready(function() {
 
 
 
+
+  
 
   
 

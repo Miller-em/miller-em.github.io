@@ -26,23 +26,17 @@
     var CONFIG = {"hostname":"xiaozhoua.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="引言学习一个框架最快的方式就是，自己利用框架针对某个案例自己敲一遍。而作为一个AI视觉者，入门的案例肯定是图像分类，所以，我选择了pytorch官网里的tutorials的一个例子。对于深度学习来说，肯定要经过下面几个步骤：数据处理（类型转换，归一化）， 搭建网络结构，训练，测试，导出&#x2F;加载模型。下面我将会用这个例子实践以上方面，加深对Pytorch基本语法的掌握。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="利用Pytorch训练一个图像分类器">
-<meta property="og:url" content="https://xiaozhoua.top/2021/02/26/deep_learning/%E5%88%A9%E7%94%A8pytorch%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E5%99%A8/index.html">
+  <meta name="description" content="AI视觉爱好者，热衷于研究深度学习算法，喜欢做CV相关的工作，常用框架为：PaddlePaddle, Pytorch...本站主要记录日常学习到的技术心得，也希望分享给大家一起学习~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="小周的个人博客">
+<meta property="og:url" content="https://xiaozhoua.top/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/index.html">
 <meta property="og:site_name" content="小周的个人博客">
-<meta property="og:description" content="引言学习一个框架最快的方式就是，自己利用框架针对某个案例自己敲一遍。而作为一个AI视觉者，入门的案例肯定是图像分类，所以，我选择了pytorch官网里的tutorials的一个例子。对于深度学习来说，肯定要经过下面几个步骤：数据处理（类型转换，归一化）， 搭建网络结构，训练，测试，导出&#x2F;加载模型。下面我将会用这个例子实践以上方面，加深对Pytorch基本语法的掌握。">
+<meta property="og:description" content="AI视觉爱好者，热衷于研究深度学习算法，喜欢做CV相关的工作，常用框架为：PaddlePaddle, Pytorch...本站主要记录日常学习到的技术心得，也希望分享给大家一起学习~">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-02-26T12:00:29.000Z">
-<meta property="article:modified_time" content="2021-03-30T13:48:04.513Z">
 <meta property="article:author" content="Miller-em">
-<meta property="article:tag" content="pytorch">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="classfication">
-<meta property="article:tag" content="CV">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://xiaozhoua.top/2021/02/26/deep_learning/%E5%88%A9%E7%94%A8pytorch%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E5%99%A8/">
+<link rel="canonical" href="https://xiaozhoua.top/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/">
 
 
 <script id="page-configurations">
@@ -50,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>利用Pytorch训练一个图像分类器 | 小周的个人博客</title>
+  <title>标签: 傅里叶变换 | 小周的个人博客</title>
   
 
 
@@ -198,108 +192,51 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content tag">
             
 
-    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xiaozhoua.top/2021/02/26/deep_learning/%E5%88%A9%E7%94%A8pytorch%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Miller-em">
-      <meta itemprop="description" content="AI视觉爱好者，热衷于研究深度学习算法，喜欢做CV相关的工作，常用框架为：PaddlePaddle, Pytorch...本站主要记录日常学习到的技术心得，也希望分享给大家一起学习~">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小周的个人博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          利用Pytorch训练一个图像分类器
-        </h1>
-
-        <div class="post-meta">
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-26 20:00:29" itemprop="dateCreated datePublished" datetime="2021-02-26T20:00:29+08:00">2021-02-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-30 21:48:04" itemprop="dateModified" datetime="2021-03-30T21:48:04+08:00">2021-03-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h2 class="collection-header">傅里叶变换
+          <small>标签</small>
+        </h2>
+      </div>
 
       
-        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>学习一个框架最快的方式就是，自己利用框架针对某个案例自己敲一遍。而作为一个AI视觉者，入门的案例肯定是图像分类，所以，我选择了pytorch官网里的tutorials的一个例子。对于深度学习来说，肯定要经过下面几个步骤：<strong>数据处理（类型转换，归一化）</strong>， <strong>搭建网络结构</strong>，<strong>训练</strong>，<strong>测试</strong>，<strong>导出/加载模型</strong>。下面我将会用这个例子实践以上方面，加深对Pytorch基本语法的掌握。</p>
- <span id="more"></span>
-<h2 id="关于数据"><a href="#关于数据" class="headerlink" title="关于数据"></a>关于数据</h2><p>一般来说，当你用pytorch来做深度学习有关的事情的时候，比如说处理图像，音频，文本和视频，你都是需要用一些python的包来将numpy类型的数据转化为<code>torch *Tensor</code></p>
-
+    <div class="collection-year">
+      <span class="collection-header">2021</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/pytorch/" rel="tag"># pytorch</a>
-              <a href="/tags/python/" rel="tag"># python</a>
-              <a href="/tags/classfication/" rel="tag"># classfication</a>
-              <a href="/tags/CV/" rel="tag"># CV</a>
-          </div>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2021-04-12T19:23:19+08:00"
+              content="2021-04-12">
+          04-12
+        </time>
+      </div>
 
-        
+      <div class="post-title">
+          <a class="post-title-link" href="/2021/04/12/signal_and_system/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" itemprop="url">
+            <span itemprop="name">信号与系统——傅里叶级数和傅里叶变换基本要点</span>
+          </a>
+      </div>
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item"></div>
-      <div class="post-nav-item">
-    <a href="/2021/02/26/Blog/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="next" title="从零开始搭建个人博客">
-      从零开始搭建个人博客 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
+    </header>
   </article>
+
+    </div>
+  </div>
   
   
+  
+
   
 
 
@@ -352,7 +289,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text">关于数据</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

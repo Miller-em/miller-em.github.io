@@ -274,68 +274,48 @@
       
         <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>我是在<strong>Ubuntu 20.04</strong> 下面搭建的博客，所以下面记录操作的命令都是针对于Ubuntu下面的命令。对于Windows下面的搭建，现在暂时还没有尝试，以后遇到了再更新操作。特别说明该个人博客是基于<strong>hexo</strong>框架搭建的，服务端是交于<strong>github</strong>管理的。</p>
 <span id="more"></span>
-
 <h2 id="安装nodejs-npm"><a href="#安装nodejs-npm" class="headerlink" title="安装nodejs, npm"></a>安装nodejs, npm</h2><p>因为hexo框架是依赖于nodejs，所以我们需要先安装好<strong>nodejs</strong>和包管理器<strong>nmp</strong>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install nodejs npm</span><br></pre></td></tr></table></figure>
-
 <p>查看是否安装成功：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node --version</span><br><span class="line">npm --version</span><br></pre></td></tr></table></figure>
-
 <p>正常输出就安装成功了。</p>
 <h2 id="安装cnmp"><a href="#安装cnmp" class="headerlink" title="安装cnmp"></a>安装cnmp</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
 <p>这里要加入源，我用的是taobao源。检查一下安装：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm -v</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="安装hexo框架"><a href="#安装hexo框架" class="headerlink" title="安装hexo框架"></a>安装hexo框架</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
 <p>检查一下安装：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="创建博客目录并初始化"><a href="#创建博客目录并初始化" class="headerlink" title="创建博客目录并初始化"></a>创建博客目录并初始化</h2><p>我在家目录下面创建了一个<code>~/PersonalBlog/</code>，命令如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir PersonalBlog &amp;&amp; cd PersonalBlog</span><br></pre></td></tr></table></figure>
-
 <p><strong>hexo</strong>初始化：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm audix fix</span><br></pre></td></tr></table></figure>
-
 <p>本地运行：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p>点击 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> ，博客页面在本地就有了。</p>
+<p>点击 <a target="_blank" rel="noopener" href="http://localhost:4000">http://localhost:4000</a> ，博客页面在本地就有了。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210325111017.png" alt="image-20210225150228015"></p>
 <h2 id="创建第一篇博客"><a href="#创建第一篇博客" class="headerlink" title="创建第一篇博客"></a>创建第一篇博客</h2><p>创建第一篇博客：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;My First Blog&quot;</span><br></pre></td></tr></table></figure>
-
 <p>然后vim向 <code>~/PersonalBlog/source/_posts/My-First-Blog.md</code> 随便写入：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210325111603.png" alt="image-20210325111602924"></p>
 <p><code>:wq</code>退出</p>
 <p>然后：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
 <p>看看效果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210325111730.png" alt="image-20210325111730245"></p>
 <h2 id="github服务端部署"><a href="#github服务端部署" class="headerlink" title="github服务端部署"></a>github服务端部署</h2><p>在github账户下创建一个仓库，仓库名必须是：<strong>xxx.github.io</strong>，所以我的就是<code>miller-em.github.io</code>，欢迎访问，哈哈哈。</p>
 <p>安装hexo-deployer-git:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
-
 <p>修改博客根目录下的<code>_config.yml</code>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure>
-
 <p>最后这里修改一下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210325111808.png" alt="image-20210325111807897"></p>
 <p>保存退出后，推向github服务器：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
 <p>输入你的github用户名和密码，成功后在浏览器输入：xxx.github.io，看看效果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210325111838.png" alt="image-20210325111838715"></p>
 <p>到这里，你的个人博客搭建就完成了！</p>
 <h2 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h2><p>我觉得原始主题不太符合我的style，所以我就换了一个主题。我用的是nexT主题，黑白配色简约淡雅。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-theme-next.git themes&#x2F;next</span><br></pre></td></tr></table></figure>
-
 <p>修改<code>_config.yml</code>，将主题改为next：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210325111948.png" alt="image-20210325111948090"></p>
 <h2 id="配置NexT"><a href="#配置NexT" class="headerlink" title="配置NexT"></a>配置NexT</h2><ol>
@@ -347,7 +327,6 @@
 <p>在<code>themes/next/_config.yml</code>下面的查看menu.</p>
 <p>在根目录下面，输入以下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo new page &quot;about&quot; </span><br><span class="line">hexo new page &quot;tags&quot;</span><br><span class="line">hexo new page &quot;categories&quot;</span><br><span class="line">hexo new page &quot;archives&quot;</span><br><span class="line">hexo new page &quot;search&quot;</span><br></pre></td></tr></table></figure>
-
 <p>此时在根目录的sources文件夹下会生成categories、tags、about、archives、search四个文件，每个文件中有一个<code>index.md</code>文件：</p>
 </li>
 <li><p>设置建站时间</p>
@@ -359,7 +338,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Sidebar Avatar</span><br><span class="line">avatar:</span><br><span class="line">  # Replace the default image and set the url here.</span><br><span class="line">  url: &#x2F;images&#x2F;avatar.gif</span><br><span class="line">  # If true, the avatar will be dispalyed in circle.</span><br><span class="line">  rounded: true</span><br><span class="line">  # If true, the avatar will be rotated with the cursor.</span><br><span class="line">  rotated: tru</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>网站图标设置</p>
-<p>我是在这个网站找的图标，免费的图标素材网站：<a href="https://link.zhihu.com/?target=https://www.easyicon.net/1220579-maple_leaf_icon.html">Easyicon</a></p>
+<p>我是在这个网站找的图标，免费的图标素材网站：<a href="https://link.zhihu.com/?target=https%3A//www.easyicon.net/1220579-maple_leaf_icon.html">Easyicon</a></p>
 <p>下载16x16和32x32的图标后，打开主题配置文件，查找favicon，只要修改small和medium为你的图标路径：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  small: &#x2F;images&#x2F;favicon-16x16-next.png</span><br><span class="line">  medium: &#x2F;images&#x2F;favicon-32x32-next.png</span><br><span class="line">  apple_touch_icon: &#x2F;images&#x2F;apple-touch-icon-next.png</span><br><span class="line">  safari_pinned_tab: &#x2F;images&#x2F;logo.svg</span><br><span class="line">  #android_manifest: &#x2F;images&#x2F;manifest.json</span><br><span class="line">  #ms_browserconfig: &#x2F;images&#x2F;browserconfig.xml</span><br></pre></td></tr></table></figure>
 </li>
@@ -370,19 +349,15 @@
 <li><p>显示文章字数和阅读时长</p>
 <p>从根目录Blog打开Git Bash，执行下面的命令，安装插件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-wordcount --save</span><br></pre></td></tr></table></figure>
-
 <p>然后打开<strong>站点配置文件，</strong>在文件末尾加上下面的代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true                # 文章字数统计</span><br><span class="line">  time: true                   # 文章阅读时长</span><br><span class="line">  total_symbols: true          # 站点总字数统计</span><br><span class="line">  total_time: true             # 站点总阅读时长</span><br><span class="line">  exclude_codeblock: false     # 排除代码字数统计</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>添加Fork me on Github</p>
-<p>选择你喜欢的类型，打开<a href="https://link.zhihu.com/?target=http://tholman.com/github-corners/">小猫</a>或者<a href="https://link.zhihu.com/?target=https://github.blog/2008-12-19-github-ribbons/">字</a>，复制代码添加到themes/next/layout/_layout.swig文件中，放在<div class="headband"></div>后面：</p>
+<p>选择你喜欢的类型，打开<a href="https://link.zhihu.com/?target=http%3A//tholman.com/github-corners/">小猫</a>或者<a href="https://link.zhihu.com/?target=https%3A//github.blog/2008-12-19-github-ribbons/">字</a>，复制代码添加到themes/next/layout/_layout.swig文件中，放在<div class="headband"></div>后面：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;headband&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;a href&#x3D;&quot;https:&#x2F;&#x2F;github.com&#x2F;Miller_em&quot; class&#x3D;&quot;github-corner&quot; ....</span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ol>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a target="_blank" rel="noopener" href="http://www.codesheep.com/">www.codesheep.com</a></p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>www.codesheep.com</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/106060640">个人博客第8篇——优化主题（持续更新）</a></p>
 
     </div>
@@ -483,20 +458,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -644,6 +619,8 @@ $(document).ready(function() {
 
 
 
+
+  
 
   
 

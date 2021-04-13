@@ -26,23 +26,21 @@
     var CONFIG = {"hostname":"xiaozhoua.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="引言学习一个框架最快的方式就是，自己利用框架针对某个案例自己敲一遍。而作为一个AI视觉者，入门的案例肯定是图像分类，所以，我选择了pytorch官网里的tutorials的一个例子。对于深度学习来说，肯定要经过下面几个步骤：数据处理（类型转换，归一化）， 搭建网络结构，训练，测试，导出&#x2F;加载模型。下面我将会用这个例子实践以上方面，加深对Pytorch基本语法的掌握。">
+  <meta name="description" content="最近学到了信号与系统最难的部分，也是十分重要的一个部分，不管在哪个领域，学好信号与系统都是十分有必要且有帮助的。同时在信号与系统这门课里面最核心的部分之一就是傅里叶变换。傅里叶变换是傅里叶一项伟大的成就。到目前，许多领域都还在使用傅里叶变换对信号进行处理，傅里叶给出了信号在时域和频域进行变换。为后面用到的信号处理技术，提供了基础。下面记录了一些对于傅里叶级数和傅里叶变换的基本公式和常用的计算方法，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用Pytorch训练一个图像分类器">
-<meta property="og:url" content="https://xiaozhoua.top/2021/02/26/deep_learning/%E5%88%A9%E7%94%A8pytorch%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E5%99%A8/index.html">
+<meta property="og:title" content="信号与系统——傅里叶级数和傅里叶变换基本要点">
+<meta property="og:url" content="https://xiaozhoua.top/2021/04/12/signal_and_system/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/index.html">
 <meta property="og:site_name" content="小周的个人博客">
-<meta property="og:description" content="引言学习一个框架最快的方式就是，自己利用框架针对某个案例自己敲一遍。而作为一个AI视觉者，入门的案例肯定是图像分类，所以，我选择了pytorch官网里的tutorials的一个例子。对于深度学习来说，肯定要经过下面几个步骤：数据处理（类型转换，归一化）， 搭建网络结构，训练，测试，导出&#x2F;加载模型。下面我将会用这个例子实践以上方面，加深对Pytorch基本语法的掌握。">
+<meta property="og:description" content="最近学到了信号与系统最难的部分，也是十分重要的一个部分，不管在哪个领域，学好信号与系统都是十分有必要且有帮助的。同时在信号与系统这门课里面最核心的部分之一就是傅里叶变换。傅里叶变换是傅里叶一项伟大的成就。到目前，许多领域都还在使用傅里叶变换对信号进行处理，傅里叶给出了信号在时域和频域进行变换。为后面用到的信号处理技术，提供了基础。下面记录了一些对于傅里叶级数和傅里叶变换的基本公式和常用的计算方法，">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-02-26T12:00:29.000Z">
-<meta property="article:modified_time" content="2021-03-30T13:48:04.513Z">
+<meta property="article:published_time" content="2021-04-12T11:23:19.386Z">
+<meta property="article:modified_time" content="2021-04-13T13:49:24.646Z">
 <meta property="article:author" content="Miller-em">
-<meta property="article:tag" content="pytorch">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="classfication">
-<meta property="article:tag" content="CV">
+<meta property="article:tag" content="信号与系统">
+<meta property="article:tag" content="傅里叶变换">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://xiaozhoua.top/2021/02/26/deep_learning/%E5%88%A9%E7%94%A8pytorch%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E5%99%A8/">
+<link rel="canonical" href="https://xiaozhoua.top/2021/04/12/signal_and_system/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/">
 
 
 <script id="page-configurations">
@@ -55,7 +53,7 @@
   };
 </script>
 
-  <title>利用Pytorch训练一个图像分类器 | 小周的个人博客</title>
+  <title>信号与系统——傅里叶级数和傅里叶变换基本要点 | 小周的个人博客</title>
   
 
 
@@ -205,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xiaozhoua.top/2021/02/26/deep_learning/%E5%88%A9%E7%94%A8pytorch%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E5%99%A8/">
+    <link itemprop="mainEntityOfPage" href="https://xiaozhoua.top/2021/04/12/signal_and_system/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +216,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          利用Pytorch训练一个图像分类器
+          信号与系统——傅里叶级数和傅里叶变换基本要点
         </h1>
 
         <div class="post-meta">
@@ -229,14 +227,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-26 20:00:29" itemprop="dateCreated datePublished" datetime="2021-02-26T20:00:29+08:00">2021-02-26</time>
+              <time title="创建时间：2021-04-12 19:23:19" itemprop="dateCreated datePublished" datetime="2021-04-12T19:23:19+08:00">2021-04-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-30 21:48:04" itemprop="dateModified" datetime="2021-03-30T21:48:04+08:00">2021-03-30</time>
+                <time title="修改时间：2021-04-13 21:49:24" itemprop="dateModified" datetime="2021-04-13T21:49:24+08:00">2021-04-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -244,7 +242,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+                  <a href="/categories/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">信号与系统</span></a>
                 </span>
             </span>
 
@@ -266,9 +264,81 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>学习一个框架最快的方式就是，自己利用框架针对某个案例自己敲一遍。而作为一个AI视觉者，入门的案例肯定是图像分类，所以，我选择了pytorch官网里的tutorials的一个例子。对于深度学习来说，肯定要经过下面几个步骤：<strong>数据处理（类型转换，归一化）</strong>， <strong>搭建网络结构</strong>，<strong>训练</strong>，<strong>测试</strong>，<strong>导出/加载模型</strong>。下面我将会用这个例子实践以上方面，加深对Pytorch基本语法的掌握。</p>
- <span id="more"></span>
-<h2 id="关于数据"><a href="#关于数据" class="headerlink" title="关于数据"></a>关于数据</h2><p>一般来说，当你用pytorch来做深度学习有关的事情的时候，比如说处理图像，音频，文本和视频，你都是需要用一些python的包来将numpy类型的数据转化为<code>torch *Tensor</code></p>
+        <p>最近学到了信号与系统最难的部分，也是十分重要的一个部分，不管在哪个领域，学好<strong>信号与系统</strong>都是十分有必要且有帮助的。同时在信号与系统这门课里面最核心的部分之一就是<strong>傅里叶变换</strong>。傅里叶变换是傅里叶一项伟大的成就。到目前，许多领域都还在使用傅里叶变换对信号进行处理，傅里叶给出了信号在<strong>时域</strong>和<strong>频域</strong>进行变换。为后面用到的信号处理技术，提供了基础。下面记录了一些对于傅里叶级数和傅里叶变换的基本公式和常用的计算方法，方便以后复习使用。</p>
+<h2 id="正交函数集的概念"><a href="#正交函数集的概念" class="headerlink" title="正交函数集的概念"></a>正交函数集的概念</h2><p>为了方便对信号进行分析，常常将复杂的信号分解为基本信号的线性组合。目前的信号基本上都是在正交函数集的基础上面进行分解。</p>
+<blockquote>
+<p>对于函数集 $\left\{f_{n}(t), n=1,2, \cdots\right\}$，如果</p>
+<script type="math/tex; mode=display">
+\int_{A_{1}}^{A_{2}} f_{n_{1}}(t) f_{n_{2}}^{*}(t) \mathrm{d} t=0, n_{1}, n_{2}=1,2,3, \cdots</script><p>且 $n_{1} \neq n_{2}$，则称此函数集称为$\left[\begin{array}{ll}A_{1} , A_{2}\end{array}\right]$上的<strong>正交函数集</strong>。</p>
+</blockquote>
+<p> 在<strong>实变函数域</strong>，常见的有三角形式的正交函数集：</p>
+<script type="math/tex; mode=display">
+\left\{1, \sin n \omega_{0} t, \cos n \omega_{0} t, n=1,2, \cdots\right\}</script><p>在<strong>复变函数域</strong>，常见的有复指数形式正交函数集：</p>
+<script type="math/tex; mode=display">
+\left\{\mathrm{e}^{\mathrm{j} n \omega_{0}{t}}, n=\pm 1, \pm 2, \cdots\right\}</script><p>对于三角正交函数集或复指数正交函数集，在正交区间$\left(t_{0}, t_{0}+T\right)$内，以下等式成立：</p>
+<script type="math/tex; mode=display">
+\int_{t_{0}}^{t_{0}+T} \cos n \omega_{0} t \cdot \cos m \omega_{0} t \mathrm{~d} t=\left\{\begin{array}{ll}
+0 & (m \neq n) \\
+\frac{T}{2} & (m=n)
+\end{array}\right.</script><script type="math/tex; mode=display">
+\int_{t_{0}}^{t_{0}+T} \sin n \omega_{0} t \cdot \sin m \omega_{0} t \mathrm{~d} t=\left\{\begin{array}{ll}
+0 & (m \neq n) \\
+\frac{T}{2} & (m=n)
+\end{array}\right.</script><script type="math/tex; mode=display">
+\int_{t_{0}}^{t_{0}+T} \cos n \omega_{0} t \cdot \sin m \omega_{0} t d t=0</script><script type="math/tex; mode=display">
+\int_{t_{0}}^{t_{0}+T} \mathrm{e}^{\mathrm{j} n \omega_{0} t} \cdot\left(\mathrm{e}^{\mathrm{j} m \omega_{0} t}\right)^{*} \mathrm{~d} t=\left\{\begin{array}{ll}
+0 & (m \neq n) \\
+T & (m=n)
+\end{array}\right.</script><p>式中 $T=2 \pi / \omega_{0}$ 为函数 $\sin \omega_{0} t, \cos \omega_{0} t$ 或 $\mathrm{e}^{\mathrm{j} \omega_{0} t}$ 的周期。</p>
+<blockquote>
+<p>注意：</p>
+<p>在三角正交函数集中，当 $n=0$ 时，$\cos 0=1, \sin 0=0$，而 0 不应该计在此正交函数集中，故三角正交函数集可具体写为：</p>
+<script type="math/tex; mode=display">
+\left\{1, \sin \omega_{0} t, \sin 2 \omega_{0} t, \cdots, \cos \omega_{0} t, \cos 2 \omega_{0} t, \cdots\right\}</script></blockquote>
+<h2 id="三角形式傅里叶级数"><a href="#三角形式傅里叶级数" class="headerlink" title="三角形式傅里叶级数"></a>三角形式傅里叶级数</h2><p>将任意一个周期信号在三角函数或复指数函数组成的完备正交函数集分解得到的级数,统称为傅里叶级数(Fourier Series, FS)。它们具有如下一些显著优点：</p>
+<ol>
+<li>三角函数和复指数函数是自然界中最常见,最基本的函数</li>
+<li><strong>三角函数和复指数函数是简谐函数,用它们表示时间信号,自然地建立起了时间和频率这两个基本物理量间的联系</strong></li>
+<li>简谐信号较其他信号更容易产生和处理</li>
+<li>三角信号或复指数信号通过线性时不变系统后,仍为三角函数和复指数函数,其频率不变,只是幅度和相位产生变化,同时,线性时不变系统对三角函数或复指数函数的响应求解非常方便</li>
+<li>许多系统(例如滤波器、信息传输系统等)的特性主要由其<strong>频域特性</strong>来描述,因此常常需要关心的并不是这些系统的冲激响应，而是其冲激响应所对应的频率特性</li>
+<li><strong>时域中的卷积运算在频域中会转化为乘积运算</strong>,从而找到了计算卷和的-种新方永时域中难于实现的卷积求解便于实现。</li>
+</ol>
+<h3 id="周期信号的傅里叶级数"><a href="#周期信号的傅里叶级数" class="headerlink" title="周期信号的傅里叶级数"></a>周期信号的傅里叶级数</h3><p>如果一个信号是周期信号，则有：</p>
+<script type="math/tex; mode=display">
+{f(t)=\tilde{f}(t+m T)} \quad m=0, \pm 1, \pm 2, \cdots</script><p>傅里叶提出：任何的周期信号都可以分解为正弦和余弦分量的叠加。所以，周期信号可以展开为如下形式：</p>
+<script type="math/tex; mode=display">
+\tilde{f}(t)=\frac{a_{0}}{2}+\sum_{n=1}^{\infty} a_{n} \cos n \omega_{0} t+\sum_{n=1}^{\infty} b_{n} \sin n \omega_{0} t</script><p>其实就是把函数 $\tilde{f}(t)$，展开成为正交函数集 $\left\{\sin n \omega_{0} t, \cos n \omega_{0} t, n=0,1,2, \cdots\right\}$ 中函数的线性叠加。其中 <strong>$\omega_{0}$</strong> 称为<strong>基波角频率</strong>：</p>
+<script type="math/tex; mode=display">
+\omega_{0}=\frac{2 \pi}{T}</script><p>对于上面的展开式中，其中的系数我们可以通过计算得到：</p>
+<script type="math/tex; mode=display">
+a_{0}=\frac{2}{T} \int_{t_{0}}^{t_{0}+T} \tilde{f}(t) \mathrm{d} t</script><script type="math/tex; mode=display">
+a_{n}=\frac{2}{T} \int_{t_{0}}^{t_{0}+T} \tilde{f}(t) \cos n \omega_{0} t \mathrm{~d} t</script><script type="math/tex; mode=display">
+b_{n}=\frac{2}{T} \int_{t_{0}}^{t_{0}+T} \tilde{f}(t) \sin n \omega_{0} t \mathrm{~d} t</script><p>其中，$a_{0}$ 称为直流系数， $a_{n}$ 称为余弦分量系数 ，$b_{n}$ 称为正弦分量系数。</p>
+<p>我们还可以把同频项合并，可以得到：</p>
+<script type="math/tex; mode=display">
+\tilde{f}(t)=\frac{a_{0}}{2}+\sum_{n=1}^{\infty} a_{n} \cos n \omega_{0} t+\sum_{n=1}^{\infty} b_{n} \sin n \omega_{0} t=A_{0}+\sum_{n=1}^{\infty} A_{n} {\cos \left(n \omega_{0} t+\varphi_{n}\right)}</script><p>其中：</p>
+<script type="math/tex; mode=display">
+\left\{\begin{array}{l}
+A_{0}=\frac{a_{0}}{2} \\
+A_{n}=\sqrt{a_{n}^{2}+b_{n}^{2}} \\
+\varphi_{n}=-\arctan \left(\frac{b_{n}}{a_{n}}\right)
+\end{array}\right.</script><script type="math/tex; mode=display">
+\left\{\begin{array}{l}
+a_{n}=A_{n} \cos \varphi_{n} \\
+b_{n}=-A_{n} \sin \varphi_{n}
+\end{array}\right.</script><blockquote>
+<p>需要注意的是,并非所有的周期信号都可以展开成三角形式傅里叶级数。信号能进行三角形式傅里叶级数展开的条件为:周期信号 $\tilde{f}(t)$ 在一个周期内 $\left[-\frac{T}{2}, \frac{T}{2}\right)$ 满足以下两个条件,称为<strong>狄里赫利(Dirichlet)</strong>条件。</p>
+<ol>
+<li><p>处处连续或至多有有限个第一类间断点</p>
+</li>
+<li><p>至多有有限多个极值点。</p>
+</li>
+</ol>
+</blockquote>
+<h2 id="指数形式的傅里叶级数"><a href="#指数形式的傅里叶级数" class="headerlink" title="指数形式的傅里叶级数"></a>指数形式的傅里叶级数</h2><p>周期信号除了可以展开为三角形式的傅里叶级数外，在满足狄里赫利条件的情况下，还可以分解为如下形式：</p>
+<script type="math/tex; mode=display">
+\tilde{f}(t)=\sum_{n=-\infty}^{\infty} F_{n} \mathrm{e}^{\mathrm{j} n \omega_{0} t}</script><p>其中 <strong>$\omega_{0}$</strong> 仍然称为<strong>基波角频率</strong>：</p>
 
     </div>
 
@@ -278,10 +348,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/pytorch/" rel="tag"># pytorch</a>
-              <a href="/tags/python/" rel="tag"># python</a>
-              <a href="/tags/classfication/" rel="tag"># classfication</a>
-              <a href="/tags/CV/" rel="tag"># CV</a>
+              <a href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" rel="tag"># 信号与系统</a>
+              <a href="/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" rel="tag"># 傅里叶变换</a>
           </div>
 
         
@@ -289,10 +357,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/02/26/Blog/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="next" title="从零开始搭建个人博客">
-      从零开始搭建个人博客 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/04/09/deep_learning/icdar2019/" rel="prev" title="ICDAR2019-LSVT 数据集预处理">
+      <i class="fa fa-chevron-left"></i> ICDAR2019-LSVT 数据集预处理
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/04/13/Blog/%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BALatex%E5%85%AC%E5%BC%8F/" rel="next" title="hexo next主题解决无法显示Latex数学公式">
+      hexo next主题解决无法显示Latex数学公式 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -352,7 +423,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%95%B0%E6%8D%AE"><span class="nav-number">2.</span> <span class="nav-text">关于数据</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E5%87%BD%E6%95%B0%E9%9B%86%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">正交函数集的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E8%A7%92%E5%BD%A2%E5%BC%8F%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">三角形式傅里叶级数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%A8%E6%9C%9F%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="nav-number">2.1.</span> <span class="nav-text">周期信号的傅里叶级数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E6%95%B0%E5%BD%A2%E5%BC%8F%E7%9A%84%E5%82%85%E9%87%8C%E5%8F%B6%E7%BA%A7%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">指数形式的傅里叶级数</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -533,6 +604,61 @@ $(document).ready(function() {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
