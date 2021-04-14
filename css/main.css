@@ -1198,7 +1198,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffb3e4;
+  background: #d2a424;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2593,19 +2593,4 @@ mjx-container + br {
 }
 .links-of-blogroll-item {
   padding: 0;
-}
-body {
-  background: url("https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210414101135.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-background-position
-}
-.tag-cloud a {
-  box-shadow: 0 1px 3px #6f42c1, 0 1px 2px #d9534f;
-  padding: 2px 10px;
-  margin: 8px;
-  background: rgba(193,66,92,0);
-  border-bottom: none;
-  border-radius: 20px;
 }
