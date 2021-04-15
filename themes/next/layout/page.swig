@@ -36,7 +36,7 @@
             <div class="tag-cloud-tags">
               {{ tagcloud({
                 min_font: 13, 
-                max_font: 31, 
+                max_font: 30, 
                 amount: 1000, 
                 color: true, 
                 start_color: '#9733EE', 
