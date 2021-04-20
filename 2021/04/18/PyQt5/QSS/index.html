@@ -27,17 +27,23 @@
     var CONFIG = {"hostname":"xiaozhoua.top","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"aut","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="AI视觉爱好者，热衷于研究深度学习算法，喜欢做CV相关的工作，常用框架为：PaddlePaddle, Pytorch...本站主要记录日常学习到的技术心得，也希望分享给大家一起学习~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小周的个人博客">
-<meta property="og:url" content="https://xiaozhoua.top/archives/2021/02/index.html">
+  <meta name="description" content="由于Pyqt（Qt在内）设计的界面很丑陋啊，不能够忍受，由于项目的需要，必须要对之前写的界面进行美化。其中就必须用到一个工具——QSS，QSS这东西看着网络上对它的介绍：这是一个类似于CSS语言的东西，负责对控件的美化，风格设置，如果对CSS熟悉的人，对QSS就很好入手。好了，我不会CSS，这不就是难为我了吗。然后，我就疯狂搜寻网络上的相关资料。果然发现用了QSS和没有用设计出来的界面有着天壤之别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PyQt-利用QSS美化界面">
+<meta property="og:url" content="https://xiaozhoua.top/2021/04/18/PyQt5/QSS/index.html">
 <meta property="og:site_name" content="小周的个人博客">
-<meta property="og:description" content="AI视觉爱好者，热衷于研究深度学习算法，喜欢做CV相关的工作，常用框架为：PaddlePaddle, Pytorch...本站主要记录日常学习到的技术心得，也希望分享给大家一起学习~">
+<meta property="og:description" content="由于Pyqt（Qt在内）设计的界面很丑陋啊，不能够忍受，由于项目的需要，必须要对之前写的界面进行美化。其中就必须用到一个工具——QSS，QSS这东西看着网络上对它的介绍：这是一个类似于CSS语言的东西，负责对控件的美化，风格设置，如果对CSS熟悉的人，对QSS就很好入手。好了，我不会CSS，这不就是难为我了吗。然后，我就疯狂搜寻网络上的相关资料。果然发现用了QSS和没有用设计出来的界面有着天壤之别">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210420180314.gif">
+<meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8">
+<meta property="article:published_time" content="2021-04-18T07:37:43.929Z">
+<meta property="article:modified_time" content="2021-04-20T12:13:07.965Z">
 <meta property="article:author" content="Miller-em">
+<meta property="article:tag" content="PyQt">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210420180314.gif">
 
-<link rel="canonical" href="https://xiaozhoua.top/archives/2021/02/">
+<link rel="canonical" href="https://xiaozhoua.top/2021/04/18/PyQt5/QSS/">
 
 
 <script id="page-configurations">
@@ -45,12 +51,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 小周的个人博客</title>
+  <title>PyQt-利用QSS美化界面 | 小周的个人博客</title>
   
 
 
@@ -195,70 +201,129 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 10 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xiaozhoua.top/2021/04/18/PyQt5/QSS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Miller-em">
+      <meta itemprop="description" content="AI视觉爱好者，热衷于研究深度学习算法，喜欢做CV相关的工作，常用框架为：PaddlePaddle, Pytorch...本站主要记录日常学习到的技术心得，也希望分享给大家一起学习~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小周的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PyQt-利用QSS美化界面
+        </h1>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-18 15:37:43" itemprop="dateCreated datePublished" datetime="2021-04-18T15:37:43+08:00">2021-04-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-20 20:13:07" itemprop="dateModified" datetime="2021-04-20T20:13:07+08:00">2021-04-20</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">界面设计</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>400</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-26T20:00:29+08:00"
-              content="2021-02-26">
-          02-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/26/Blog/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" itemprop="url">
-            <span itemprop="name">从零开始搭建个人博客</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-02-26T20:00:29+08:00"
-              content="2021-02-26">
-          02-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/02/26/deep_learning/%E5%88%A9%E7%94%A8pytorch%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E5%99%A8/" itemprop="url">
-            <span itemprop="name">利用Pytorch训练一个图像分类器</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <p>由于Pyqt（Qt在内）设计的界面很丑陋啊，不能够忍受，由于项目的需要，必须要对之前写的界面进行美化。其中就必须用到一个工具——<strong>QSS</strong>，QSS这东西看着网络上对它的介绍：这是一个类似于CSS语言的东西，负责对控件的美化，风格设置，<strong>如果对CSS熟悉的人，对QSS就很好入手</strong>。好了，我不会CSS，这不就是难为我了吗。然后，我就疯狂搜寻网络上的相关资料。果然发现用了QSS和没有用设计出来的界面有着天壤之别！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210420180314.gif" alt=""></p>
+ <span id="more"></span>
+<h2 id="从无到有"><a href="#从无到有" class="headerlink" title="从无到有"></a>从无到有</h2><p>这里我将会从0开始设计一个属于我的一个自认为还行的界面，怎么也得比原始的Qt界面要好看吧 <span class="github-emoji" style="display:inline;vertical-align:middle"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span> 。这个过程也记录下来，方便以后回顾。</p>
+<p>我所用到的工具：</p>
+<ul>
+<li>Pyqt5</li>
+<li>Qt Designer</li>
+<li>VsCode</li>
+<li>Python</li>
+</ul>
+<p>有一说一，有了<strong>Qt Designer</strong>的帮助，界面开发时，在设计框架上面可以进程加快很多，比一行一行代码手敲效率搞了不知道多少。当然我不是很精通这个软件，过程中会遇到一些，这些问题也会记录。</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/PyQt/" rel="tag"><i class="fa fa-tag"></i> PyQt</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/04/15/Plans/2021_04/" rel="prev" title="2021-四月学习计划">
+      <i class="fa fa-chevron-left"></i> 2021-四月学习计划
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -311,6 +376,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E6%97%A0%E5%88%B0%E6%9C%89"><span class="nav-text">从无到有</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
