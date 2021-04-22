@@ -105,7 +105,14 @@ pagination_dir: page
 # include:
 # exclude:
 # ignore:
-
+githubEmojis:
+  enable: true
+  className: github-emoji
+  unicode: true
+  styles:
+    display: inline
+    vertical-align: middle # Freemind适用
+  localEmojis:
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
