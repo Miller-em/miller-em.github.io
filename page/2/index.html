@@ -30,27 +30,27 @@
   <meta name="description" content="AI视觉爱好者，热衷于研究深度学习算法，喜欢做CV相关的工作，常用框架为：PaddlePaddle, Pytorch...本站主要记录日常学习到的技术心得，也希望分享给大家一起学习~">
 <meta property="og:type" content="website">
 <meta property="og:title" content="小周的个人博客">
-<meta property="og:url" content="https://xiaozhoua.top/tags/ssh/index.html">
+<meta property="og:url" content="https://xiaozhoua.top/page/2/index.html">
 <meta property="og:site_name" content="小周的个人博客">
 <meta property="og:description" content="AI视觉爱好者，热衷于研究深度学习算法，喜欢做CV相关的工作，常用框架为：PaddlePaddle, Pytorch...本站主要记录日常学习到的技术心得，也希望分享给大家一起学习~">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Miller-em">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://xiaozhoua.top/tags/ssh/">
+<link rel="canonical" href="https://xiaozhoua.top/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
+    isHome : true,
     isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签: ssh | 小周的个人博客</title>
+  <title>小周的个人博客</title>
   
 
 
@@ -195,52 +195,109 @@
         <div class="content-wrap">
           
 
-          <div class="content tag">
+          <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://xiaozhoua.top/2021/02/26/deep_learning/%E5%88%A9%E7%94%A8pytorch%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E5%99%A8/">
 
-  
-  
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">ssh
-          <small>标签</small>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Miller-em">
+      <meta itemprop="description" content="AI视觉爱好者，热衷于研究深度学习算法，喜欢做CV相关的工作，常用框架为：PaddlePaddle, Pytorch...本站主要记录日常学习到的技术心得，也希望分享给大家一起学习~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小周的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/02/26/deep_learning/%E5%88%A9%E7%94%A8pytorch%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E5%99%A8/" class="post-title-link" itemprop="url">利用Pytorch训练一个图像分类器</a>
         </h2>
-      </div>
+
+        <div class="post-meta">
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-02-26 20:00:29" itemprop="dateCreated datePublished" datetime="2021-02-26T20:00:29+08:00">2021-02-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-30 21:48:04" itemprop="dateModified" datetime="2021-03-30T21:48:04+08:00">2021-03-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>277</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>学习一个框架最快的方式就是，自己利用框架针对某个案例自己敲一遍。而作为一个AI视觉者，入门的案例肯定是图像分类，所以，我选择了pytorch官网里的tutorials的一个例子。对于深度学习来说，肯定要经过下面几个步骤：<strong>数据处理（类型转换，归一化）</strong>， <strong>搭建网络结构</strong>，<strong>训练</strong>，<strong>测试</strong>，<strong>导出/加载模型</strong>。下面我将会用这个例子实践以上方面，加深对Pytorch基本语法的掌握。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/02/26/deep_learning/%E5%88%A9%E7%94%A8pytorch%E8%AE%AD%E7%BB%83%E4%B8%80%E4%B8%AA%E5%9B%BE%E5%83%8F%E5%88%86%E7%B1%BB%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-04-08T19:23:12+08:00"
-              content="2021-04-08">
-          04-08
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/04/08/questions/ssh/" itemprop="url">
-            <span itemprop="name">Bad owner or permissions on .ssh/config Windows 10</span>
-          </a>
-      </div>
-
-    </header>
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
   </article>
-
-    </div>
-  </div>
   
   
   
 
+
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 

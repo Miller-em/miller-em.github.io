@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>2021-五月学习计划</title>
+      <link href="2021/05/07/Plans/2021_05/"/>
+      <url>2021/05/07/Plans/2021_05/</url>
+      
+        <content type="html"><![CDATA[<p>上个月有一些没有完成的任务，主要是六级，惭愧，考了2次都没过，所以这个月一定要好好准备一下。我打算白天六级，晚上搞技术。早睡早起！</p><p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210415180054.gif" alt=""></p><h2 id="本月计划"><a href="#本月计划" class="headerlink" title="本月计划"></a>本月计划</h2><p><strong>必须完成部分：</strong></p><ul><li>[ ] 完成六级试卷8套，每套的听力精听</li><li>[ ] 完成OCR中的文字识别</li><li>[ ] 智慧渔政的软著书写</li><li>[ ] 飞卡智能车的AI部分调优</li><li>[ ] 跑一个yolov5的开源项目</li><li>[ ] Android学习</li><li>[ ] 读5篇在目标检测领域内的论文</li></ul><h2 id="6日-9日-计划"><a href="#6日-9日-计划" class="headerlink" title="6日-9日 计划"></a>6日-9日 计划</h2><ul><li>[ ] 智慧渔政软著书写</li><li>[ ] 完成六级试卷两套</li><li>[ ] 飞卡智能车的AI代码试跑</li><li>[ ] Android控件学习</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习计划 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习计划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>PyQt-利用QSS美化界面</title>
       <link href="2021/04/18/PyQt5/QSS/"/>
       <url>2021/04/18/PyQt5/QSS/</url>
@@ -33,7 +58,7 @@
       <link href="2021/04/15/Plans/2021_04/"/>
       <url>2021/04/15/Plans/2021_04/</url>
       
-        <content type="html"><![CDATA[<p>最近感觉有种目标不够坚定的样子，经常感觉事情很多，又不知道要先干啥的样子。所以特定地设置一下四月份的目标，并且上传到博客，每次打开博客都能够一眼看到，也算明确一下目标吧！</p><p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210415180054.gif" alt=""></p><h2 id="本月计划"><a href="#本月计划" class="headerlink" title="本月计划"></a>本月计划</h2><p><strong>必须完成部分：</strong></p><ul><li>[x] 完成专业作业</li><li>[ ] 完成六级试卷4套，每套的听力精听</li><li>[x] 完成OCR中的检测</li><li>[x] 智慧渔政的GUI美化问题</li><li>[ ] 飞卡智能车的AI部分实现和调优</li><li>[ ] 利用Pytorch进行基于SRResNet, SRGAN的图片超分辨率实现</li></ul><p><strong>拟完成部分：</strong></p><ul><li>[ ] Android 学习 (控件)</li></ul><h2 id="12日-18日-计划"><a href="#12日-18日-计划" class="headerlink" title="12日-18日 计划"></a>12日-18日 计划</h2><ul><li>[x] 完成信号与系统的作业和博客</li><li>[ ] 完成六级试卷一套</li><li>[x] OCR GUI美化  QSS</li></ul><h2 id="19日-25日-计划"><a href="#19日-25日-计划" class="headerlink" title="19日-25日 计划"></a>19日-25日 计划</h2><ul><li>[x] 完成OCR中的检测</li><li>[x] 智慧渔政的GUI美化问题</li><li>[ ] 完成一套六级真题</li><li>[ ] 跑起来飞卡的AI数据    </li><li>[x] 利用Pytorch进行基于SRResNet的图片超分辨率实现</li></ul>]]></content>
+        <content type="html"><![CDATA[<p>最近感觉有种目标不够坚定的样子，经常感觉事情很多，又不知道要先干啥的样子。所以特定地设置一下四月份的目标，并且上传到博客，每次打开博客都能够一眼看到，也算明确一下目标吧！</p><p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210415180054.gif" alt=""></p><span id="more"></span><h2 id="本月计划"><a href="#本月计划" class="headerlink" title="本月计划"></a>本月计划</h2><p><strong>必须完成部分：</strong></p><ul><li>[x] 完成专业作业</li><li>[ ] 完成六级试卷4套，每套的听力精听</li><li>[x] 完成OCR中的检测</li><li>[x] 智慧渔政的GUI美化问题</li><li>[x] 飞卡智能车的AI部分实现和调优</li></ul><p><strong>拟完成部分：</strong></p><ul><li>[ ] Android 学习 (控件)</li></ul><h2 id="12日-18日-计划"><a href="#12日-18日-计划" class="headerlink" title="12日-18日 计划"></a>12日-18日 计划</h2><ul><li>[x] 完成信号与系统的作业和博客</li><li>[ ] 完成六级试卷一套</li><li>[x] OCR GUI美化  QSS</li></ul><h2 id="19日-25日-计划"><a href="#19日-25日-计划" class="headerlink" title="19日-25日 计划"></a>19日-25日 计划</h2><ul><li>[x] 完成OCR中的检测</li><li>[x] 智慧渔政的GUI美化问题</li><li>[ ] 完成一套六级真题</li><li>[x] 跑起来飞卡的AI数据    </li><li>[x] 利用Pytorch进行基于SRResNet的图片超分辨率实现</li></ul>]]></content>
       
       
       <categories>
