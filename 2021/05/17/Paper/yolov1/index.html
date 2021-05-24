@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210522222312.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210523200153.png">
 <meta property="article:published_time" content="2021-05-17T13:51:49.609Z">
-<meta property="article:modified_time" content="2021-05-23T15:23:59.052Z">
+<meta property="article:modified_time" content="2021-05-24T04:29:06.020Z">
 <meta property="article:author" content="Miller-em">
 <meta property="article:tag" content="目标检测">
 <meta name="twitter:card" content="summary">
@@ -240,7 +240,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-23 23:23:59" itemprop="dateModified" datetime="2021-05-23T23:23:59+08:00">2021-05-23</time>
+                <time title="修改时间：2021-05-24 12:29:06" itemprop="dateModified" datetime="2021-05-24T12:29:06+08:00">2021-05-24</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -307,7 +307,7 @@
 <script type="math/tex; mode=display">
 \operatorname{Pr}(\text { Object }) * \text { IOU }_{\text {preed }}^{\text {truth }}</script><p>Pr(Object)表示其网格单元（注意是网格单元不是边界框）内是否含有目标对象，如果该单元格中没有对象，即Pr(Object) 为0，则置信度分数应为零。否则，则表示含有目标对象，Pr(Object) 为1，置信度分数等于预测框与真实框的交并比（IOU）（数值在[0,1]之间，数值越大说明重合区域越大，得分越高）。</p>
 <p>每个边界框由5个预测组成：x，y，w，h和置信度。 （x，y）坐标表示边界框相对于网格单元边界的中心。（w，h）相对于整个图像预测宽度和高度。最后，置信度预测表示预测框与任何地面真实框之间的IOU。</p>
-<p>每个网格单元还预测<strong>C</strong>个条件类概率，$\operatorname{Pr}($ Class $\mid$ Object $)$，这些概率以包含对象的网格单元为条件。 无论预测边界框<strong>B</strong>的数量如何，都仅预测每个网格单元的一组类概率，也就是说每个网格单元预测一组类概率。</p>
+<p>每个网格单元还预测<strong>C</strong>个条件类概率，$\operatorname{Pr}($ Class $\mid$ Object $)$ ，这些概率以包含对象的网格单元为条件。 无论预测边界框<strong>B</strong>的数量如何，都仅预测每个网格单元的一组类概率，也就是说每个网格单元预测一组类概率。</p>
 <p>在测试时，将条件类别的概率和各个预测框的置信度相乘：</p>
 <script type="math/tex; mode=display">
 \operatorname{Pr}\left(\text { Class }_{i} \mid \text { Object }\right)^{*} \operatorname{Pr}(\text { Object })^{*} I O U_{\text {pred }}^{\text {truth }}=\operatorname{Pr}\left(\text { Class }_{i}\right)^{*} \text { IOU }_{\text {pred }}^{\text {truth }}</script><p>这样既可得到每个bounding box的具体类别的confidence score。这乘积既包含了bounding box中预测的class的 probability信息，也反映了bounding box是否含有Object和bounding box坐标的准确度。（显然如果cell中不含有目标对象，则乘积直接为0）</p>
@@ -640,6 +640,61 @@ setInterval("createtime()",250);
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
