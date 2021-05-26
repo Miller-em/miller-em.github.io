@@ -208,3 +208,71 @@ public class MainActivity extends AppCompatActivity {
   NotificationManager类是一个**通知管理器类**， 这个对象是由系统维护的服务，是以单例模式的方式获得，所以一般并不直接实例化这个对象。在Activity中， 可以使用`Activity.getSystemService(String)`方法获取**NotificationManager**对象，Activity.getSystemService(String)方法可以通过Android系统级服务的句柄，返回对应的对象。在这里需要返回NotificationManager,所以直接传递Context.NOTIFICATION SERVICE即可 。
 - 使用**Bilder**构造器来创建Notification对象
   使用NotificationCompat类的Builder构造器来创建Notification对象，可以保证程序在所有的版本上都能正常工作。Android8.0新增了通知渠道这个概念，如果没有设置，则通知无法在Android8.0的机器上显示
+
+
+
+![image-20210511115839246](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210511115848.png)
+
+![image-20210511120006500](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210511120006.png)
+
+
+
+## ToolBar
+
+常用属性：
+
+- android:layout_width="match_parent"
+- android:layout_height="?attr/actionBarSize"
+- android:background="#ffff00"
+- app:navigationlcon="@drawable/ic_baseline_arrow_back_24"
+- app:title="主标题"
+- app:titleTextColor="#ff0000"
+- app:titleMarginStart="90dp"
+- app:subtitle="子标题"
+- app:subtitleTextColor="#OOffff
+- app:logo="@mipmap/ic_launcher"
+
+![image-20210511123726114](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210511123732.png)
+
+![image-20210511123851372](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210511123852.png)
+
+## AlertDialog
+
+实现方式：
+
+- AlertDialog.Builder builder = new AlertDialog.Builder(context);构建Dialog的各种参数
+- Builder.setlcon(int iconld);添加ICON
+- Builder.setTitle(CharSequence title);添加标题
+- Builder.setMessage(CharSequence message);添加消息
+- Builder.setView(View view);设置自定义布局
+- Builder.create();到建Dialog
+- Builder.show();显示对话框
+- setPositiveButton确定按钮
+- setNegativeButton取消按钮
+- setNeutralButton中间按钮
+
+![image-20210511133254734](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210511133254.png)
+
+![image-20210511133327903](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210511133328.png)
+
+## PopupWindow
+
+常用方法：
+
+1. setContentView(View contentView)：设置PopupWindow显示的View
+2. showAsDropDown(View anchor)：相对某个控件的位置(正左下方)，无偏移
+3. showAsDropDown(View anchor, int xoff, int yoff)：相对某个控件的位置，有偏移
+4. setFocusable(boolean focusable)：设置是否获取焦点
+5. setBackgroundDravIable(Drawable background)：设置背景
+6. dismiss() ：关闭弹窗
+7. setAnimationStyle(int animationStyle)：设置加载动画
+8. setTouchable(boolean touchable)：设置触摸使能
+9. setOutsideTouchable(boolean touchable)：设置PopupWindow外面的触摸使能
+
+
+
+![image-20210511141847626](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210511141848.png)
+
+![image-20210511141906380](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210511141906.png)
+
+![image-20210511141923657](https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210511141924.png)
