@@ -37,8 +37,15 @@
 <meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210616193732.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210616203240.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210617185156.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210617191410.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210617192701.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210626195419.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210626201905.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210626202519.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210626204909.png">
 <meta property="article:published_time" content="2021-06-15T12:32:39.400Z">
-<meta property="article:modified_time" content="2021-06-16T12:59:57.714Z">
+<meta property="article:modified_time" content="2021-07-12T10:47:24.873Z">
 <meta property="article:author" content="Miller-em">
 <meta property="article:tag" content="OpenCV">
 <meta name="twitter:card" content="summary">
@@ -240,7 +247,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-16 20:59:57" itemprop="dateModified" datetime="2021-06-16T20:59:57+08:00">2021-06-16</time>
+                <time title="修改时间：2021-07-12 18:47:24" itemprop="dateModified" datetime="2021-07-12T18:47:24+08:00">2021-07-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,14 +272,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.3k</span>
+              <span>10k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>9 分钟</span>
             </span>
 
         </div>
@@ -311,7 +318,110 @@
 <figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span>{</span><br><span class="line">	<span class="keyword">int</span> height, width;</span><br><span class="line">	cv::Mat img = cv::imread(<span class="string">"lena.jpg"</span>, cv::IMREAD_GRAYSCALE);	<span class="comment">//读取图片,以灰度图读入</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (img.empty()){</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"读取图片失败！"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	}</span><br><span class="line">	height = img.rows;</span><br><span class="line">	width = img.cols;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> row=<span class="number">0</span>; row &lt; height; ++row){</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> col=<span class="number">0</span>; col &lt;width; ++col){</span><br><span class="line">			<span class="keyword">int</span> gray = img.at&lt;uchar&gt;(row, col);</span><br><span class="line">			img.at&lt;uchar&gt;(row, col) = <span class="number">255</span> - gray;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	cv::namedWindow(<span class="string">"image"</span>, <span class="number">1</span>);</span><br><span class="line">	cv::imshow(<span class="string">"image"</span>, img);</span><br><span class="line">	cv::waitKey(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	cv::imwrite(<span class="string">"save_lena.jpg"</span>, img);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 <p>运行结果：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210616203240.png" alt="image-20210616203239878"></p>
-<h2 id="阶段三、OpenCV的图像处理方法"><a href="#阶段三、OpenCV的图像处理方法" class="headerlink" title="阶段三、OpenCV的图像处理方法"></a>阶段三、OpenCV的图像处理方法</h2><h3 id="1-OpenCV进行几何变换"><a href="#1-OpenCV进行几何变换" class="headerlink" title="1.OpenCV进行几何变换"></a>1.OpenCV进行几何变换</h3>
+<h2 id="阶段三、OpenCV的图像处理方法"><a href="#阶段三、OpenCV的图像处理方法" class="headerlink" title="阶段三、OpenCV的图像处理方法"></a>阶段三、OpenCV的图像处理方法</h2><h3 id="1-OpenCV进行几何变换"><a href="#1-OpenCV进行几何变换" class="headerlink" title="1.OpenCV进行几何变换"></a>1.OpenCV进行几何变换</h3><p>常见的图像的几何变换有：移动，旋转，扩展缩放，仿射变换的等；</p>
+<h4 id="扩展缩放"><a href="#扩展缩放" class="headerlink" title="扩展缩放"></a>扩展缩放</h4><p>扩展缩放只是改变图像的尺寸大小，OpenCV提供了<code>cv::resize</code>方法实现。图像的尺寸可以自己设置，可以指定缩放因子或者不同的插值方式。具体实例如下：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span>{</span><br><span class="line">	cv::Mat img = cv::imread(<span class="string">"lena.jpg"</span>, cv::IMREAD_GRAYSCALE);	<span class="comment">//读取图片,以灰度图读入</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (img.empty()){</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"读取图片失败！"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	cv::Mat outimg;</span><br><span class="line">	cv::resize(img, outimg, cv::Size(img.rows * <span class="number">0.75</span>, img.cols * <span class="number">0.75</span>), <span class="number">0</span>, <span class="number">0</span>, cv::INTER_LINEAR); <span class="comment">//将图片缩放到75%</span></span><br><span class="line">	cv::imshow(<span class="string">"origin image"</span>, img);</span><br><span class="line">	cv::imshow(<span class="string">"out image"</span>, outimg);</span><br><span class="line">	cv::waitKey(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210617185156.png" alt="image-20210617185156360"></p>
+<h4 id="平移"><a href="#平移" class="headerlink" title="平移"></a>平移</h4><p>平移就是将对象换一个位置。图像的平移分为两步：首先定义好图像的平移矩阵，分别指定x方向和y方向上的平移量tx和ty，平移矩阵的形式如下：</p>
+<script type="math/tex; mode=display">
+M=\left[\begin{array}{lll}
+1 & 0 & \mathrm{t}_{\mathrm{x}} \\
+0 & 1 & \mathrm{t}_{y}
+\end{array}\right]</script><p>具体实例：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span>{</span><br><span class="line">	cv::Mat img = cv::imread(<span class="string">"lena.jpg"</span>);	<span class="comment">//读取图片,以灰度图读入</span></span><br><span class="line">	cv::Mat outimg;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (img.empty()){</span><br><span class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"读取图片失败！"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="comment">//定义平移矩阵</span></span><br><span class="line">	cv::Mat t_mat = cv::Mat::zeros(<span class="number">2</span>, <span class="number">3</span>, CV_32FC1);</span><br><span class="line">	t_mat.at&lt;<span class="keyword">float</span>&gt;(<span class="number">0</span>,<span class="number">0</span>) = <span class="number">1</span>;</span><br><span class="line">	t_mat.at&lt;<span class="keyword">float</span>&gt;(<span class="number">0</span>,<span class="number">2</span>) = <span class="number">20</span>;		<span class="comment">//水平偏移量</span></span><br><span class="line">	t_mat.at&lt;<span class="keyword">float</span>&gt;(<span class="number">1</span>,<span class="number">1</span>) = <span class="number">1</span>;</span><br><span class="line">	t_mat.at&lt;<span class="keyword">float</span>&gt;(<span class="number">1</span>,<span class="number">2</span>) = <span class="number">10</span>;		<span class="comment">//垂直偏移量</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//根据平移矩阵进行仿射变换</span></span><br><span class="line">	cv::warpAffine(img, outimg, t_mat, img.size());</span><br><span class="line"></span><br><span class="line">	cv::imshow(<span class="string">"origin image"</span>, img);</span><br><span class="line">	cv::imshow(<span class="string">"out image"</span>, outimg);</span><br><span class="line">	cv::waitKey(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210617191410.png" alt="image-20210617191409791"></p>
+<h4 id="旋转"><a href="#旋转" class="headerlink" title="旋转"></a>旋转</h4><p>图像的旋转具体实现分为两步：先根据旋转角度和旋转中心获取旋转矩阵；然后根据旋转矩阵进行仿射变换，即可实现任意角度和任意中心的旋转效果。旋转矩阵的形式如下：</p>
+<script type="math/tex; mode=display">
+\left[\begin{array}{c}
+\alpha & \beta & (1-\alpha) \cdot \text { center } \cdot x-\beta \cdot \text { center. } y \\
+-\beta & \alpha & \beta \cdot \text { center. } x+(1-\alpha) \cdot \text { center } . y
+\end{array}\right]</script><p>其中：</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+\alpha=\operatorname{scale} \cdot \cos \theta \\
+\beta=\text { scale } \cdot \sin \theta
+\end{array}</script><p>以下为实例程序：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;opencv2/opencv.hpp&gt;</span><br><span class="line"></span><br><span class="line">int main(int argc, char** argv){</span><br><span class="line">	cv::Mat img = cv::imread("lena.jpg");	//读取图片,以灰度图读入</span><br><span class="line">	cv::Mat outimg;</span><br><span class="line"></span><br><span class="line">	if (img.empty()){</span><br><span class="line">		std::cout &lt;&lt; "读取图片失败！" &lt;&lt; std::endl;</span><br><span class="line">		return -1;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	//旋转角度</span><br><span class="line">	double angle = 45;</span><br><span class="line">	int len = std::max(img.cols, img.rows);</span><br><span class="line"></span><br><span class="line">	//指定旋转中心</span><br><span class="line">	cv::Point2f center(len/2, len/2);</span><br><span class="line">	cv::Mat rot_mat = cv::getRotationMatrix2D(center, angle, 1.0);</span><br><span class="line"></span><br><span class="line">	//根据旋转矩阵进行仿射变换</span><br><span class="line">	cv::warpAffine(img, outimg, rot_mat, img.size());</span><br><span class="line"></span><br><span class="line">	cv::imshow("origin image", img);</span><br><span class="line">	cv::imshow("out image", outimg);</span><br><span class="line">	cv::waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210617192701.png" alt="image-20210617192701360"></p>
+<h4 id="仿射变换"><a href="#仿射变换" class="headerlink" title="仿射变换"></a>仿射变换</h4><p>仿射变换是指在向量空间中进行一次线性变换(乘以一个矩阵)并加上一个平移(加上一个向量)，变换为另一个向量空间的过程。再OpenCV中利用warpAffine函数实现仿射变换，下面是<strong>cv::warpAffine函数</strong>：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void cv::warpAffine     (   InputArray      src,</span><br><span class="line">        OutputArray     dst,</span><br><span class="line">        InputArray      M,</span><br><span class="line">        Size    dsize,</span><br><span class="line">        int     flags = INTER_LINEAR,</span><br><span class="line">        int     borderMode = BORDER_CONSTANT,</span><br><span class="line">        const Scalar &amp;      borderValue = Scalar() </span><br><span class="line">    )</span><br></pre></td></tr></tbody></table></figure>
+<p>参数解释</p>
+<ul>
+<li>src: 输入图像</li>
+<li>dst: 输出图像，尺寸由dsize指定，图像类型与原图像一致</li>
+<li>M: 2X3的变换矩阵</li>
+<li>dsize: 指定图像输出尺寸</li>
+<li>flags: 插值算法标识符，有默认值INTER_LINEAR，如果插值算法为WARP_INVERSE_MAP, warpAffine函数使用如下矩阵进行图像转换</li>
+</ul>
+<p><strong>对图像做仿射变换主要是需要做出仿射矩阵。</strong>该部分就不做示例了，要用的时候再添上。</p>
+<h4 id="透视变换"><a href="#透视变换" class="headerlink" title="透视变换"></a>透视变换</h4><p>我们在拍摄图片的时候无法保证图片是正下方垂直拍摄的，所以在获取图像的时候会防止我们提取正确的图像，这里我们就需要用到了<strong>透视变换</strong>。这部分是比较重要的，因为在车牌检测的时候，我们经常不能够获得一个正常角度的图片，利用透视变换可以将倾斜的照片变成我们正常习惯的视角。</p>
+<p>在做透视变换的主要任务是：找到原图像的角点。</p>
+<p>主要流程：</p>
+<ol>
+<li>灰度处理、二值化、形态学操作形成连通区域</li>
+<li>轮廓发现、将目标的轮廓绘制出来</li>
+<li>在绘制的轮廓中进行直线检测</li>
+<li>找出四条边，求出四个交点</li>
+<li>使用透视变换函数，得到结果</li>
+</ol>
+<p>下面是示例代码：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="2-OpenCV进行形态学转换"><a href="#2-OpenCV进行形态学转换" class="headerlink" title="2.OpenCV进行形态学转换"></a>2.OpenCV进行形态学转换</h3><p>形态学操作是根据图像形状进行的简单操作。一般情况下对二值化图像进行的操作。需要输入两个参数，一个是原始图像，第二个被称为结构化元素或核，它是用来决定操作的性质的。两个基本的形态学操作是腐蚀和膨胀。他们的变体构成了开运算，闭运算，梯度等。下面会逐一介绍：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210626195419.png" alt="image-20210626195357572"></p>
+<h4 id="腐蚀"><a href="#腐蚀" class="headerlink" title="腐蚀"></a>腐蚀</h4><p>就像土壤侵蚀一样，这个操作会把前景物体的边界腐蚀掉（但是前景仍然是白色）。这是怎么做到的呢？卷积核沿着图像滑动，如果与卷积核对应的原图像的所有像素值都是 1，那么中心元素就保持原来的像素值，否则就变为零。这样就会造成白色区域缩小，就是上面的 <strong>j</strong> 变瘦了。下面是代码示例：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">	cv::Mat src = cv::imread(<span class="string">"J.jpg"</span>), outimg;</span><br><span class="line">	cv::namedWindow(<span class="string">"Origin"</span>, cv::WINDOW_NORMAL);</span><br><span class="line">	cv::imshow(<span class="string">"Origin"</span>, src);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//获取自定义核</span></span><br><span class="line">	cv::Mat element = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(<span class="number">9</span>, <span class="number">9</span>));</span><br><span class="line">	<span class="comment">//腐蚀操作</span></span><br><span class="line">	cv::erode(src, outimg, element);</span><br><span class="line">	cv::namedWindow(<span class="string">"Erode"</span>, cv::WINDOW_NORMAL);</span><br><span class="line">	cv::imshow(<span class="string">"Erode"</span>, outimg);</span><br><span class="line">	cv::waitKey(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210626201905.png" alt="image-20210626201905595"></p>
+<h4 id="膨胀"><a href="#膨胀" class="headerlink" title="膨胀"></a>膨胀</h4><p>与腐蚀相反，与卷积核对应的原图像的像素值中只要有一个是 1，中心元素的像素值就是 1。所以这个操作会增加图像中的白色区域（前景）。一般在去噪声时先用腐蚀再用膨胀。因为腐蚀在去掉白噪声的同时，也会使前景对象变小。所以我们再对他进行膨胀。这时噪声已经被去除了，不会再回来了，但是前景还在并会增加。膨胀也可以用来连接两个分开的物体。下面是示例程序：</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{</span><br><span class="line">	cv::Mat src = cv::imread(<span class="string">"J.jpg"</span>), outimg;</span><br><span class="line">	cv::namedWindow(<span class="string">"Origin"</span>, cv::WINDOW_NORMAL);</span><br><span class="line">	cv::imshow(<span class="string">"Origin"</span>, src);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//获取自定义核</span></span><br><span class="line">	cv::Mat element = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(<span class="number">9</span>, <span class="number">9</span>));</span><br><span class="line">	<span class="comment">//膨胀操作</span></span><br><span class="line">	cv::dilate(src, outimg, element);</span><br><span class="line">	cv::namedWindow(<span class="string">"Erode"</span>, cv::WINDOW_NORMAL);</span><br><span class="line">	cv::imshow(<span class="string">"Erode"</span>, outimg);</span><br><span class="line">	cv::waitKey(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210626202519.png" alt="image-20210626202519693"></p>
+<p>可以看出他们的差别就是换了一个api。</p>
+<h4 id="其他形态学操作"><a href="#其他形态学操作" class="headerlink" title="其他形态学操作"></a>其他形态学操作</h4><ul>
+<li><p>开运算：先腐蚀再膨胀，用来消除小物体</p>
+</li>
+<li><p>闭运算：先膨胀再腐蚀，用于排除小型黑洞</p>
+</li>
+<li><p>形态学梯度：就是膨胀图与俯视图之差，用于保留物体的边缘轮廓。</p>
+</li>
+<li><p>顶帽：原图像与开运算图之差，用于分离比邻近点亮一些的斑块。</p>
+</li>
+<li><p>黑帽：闭运算与原图像之差，用于分离比邻近点暗一些的斑块。</p>
+</li>
+</ul>
+<p>这些掌握了基本的腐蚀和膨胀过后，这些就变得很简单，必要的时候再去查一查API使用。</p>
+<h3 id="3-OpenCV进行图像平滑"><a href="#3-OpenCV进行图像平滑" class="headerlink" title="3.OpenCV进行图像平滑"></a>3.OpenCV进行图像平滑</h3><p>学习目标：</p>
+<ul>
+<li>学习使用不同的低通滤波器对图像进行模糊</li>
+<li>使用自定义的滤波器对图像进行卷积</li>
+</ul>
+<h4 id="2D卷积"><a href="#2D卷积" class="headerlink" title="2D卷积"></a>2D卷积</h4><p>和一维信号一样，我们可以对二维图像信号进行低通滤波（LPF）和高通滤波（HPF）。LPF 帮助我们去除噪音，模糊图像。HPF 帮助我们找到图像的边缘。OpenCV提供了cv::filter2D对图像进行卷积操作。下面是利用平均滤波器对图像进行的滤波：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210626204909.png" alt="image-20210626204909215"></p>
+<h4 id="平均"><a href="#平均" class="headerlink" title="平均"></a>平均</h4><p>这是由一个归一化卷积框完成的。他只是用卷积框覆盖区域所有像素的平均值来代替中心元素。可以使用函数 <strong>cv::blur()</strong> 和 <strong>cv::boxFilter()</strong> 来完这个任务。我们需要设定卷积框的宽和高。下面是一个 3x3 的归一化卷积框：</p>
+<script type="math/tex; mode=display">
+K=\frac{1}{9}\left[\begin{array}{lll}
+1 & 1 & 1 \\
+1 & 1 & 1 \\
+1 & 1 & 1
+\end{array}\right]</script><p>下面是示例代码：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<h4 id="高斯模糊"><a href="#高斯模糊" class="headerlink" title="高斯模糊"></a>高斯模糊</h4><p>现在把卷积核换成高斯核（简单来说，方框不变，将原来每个方框的值是相等的，现在里面的值是符合高斯分布的，方框中心的值最大，其余方框根据距离中心元素的距离递减，构成一个高斯小山包。原来的求平均数现在变成求加权平均数，全就是方框里的值）。实现的函数是 <strong>cv::GaussianBlur()</strong>。我们需要指定高斯核的宽和高（必须是奇数）。以及高斯函数沿 X，Y 方向的标准差。如果我们只指定了 X 方向的的标准差，Y 方向也会取相同值。如果两个标准差都是 0，那么函数会根据核函数的大小自己计算。高斯滤波可以有效的从图像中去除<strong>高斯噪音</strong>。</p>
+<p>下面是示例代码：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<h4 id="中值模糊"><a href="#中值模糊" class="headerlink" title="中值模糊"></a>中值模糊</h4><p>顾名思义就是用与卷积框对应像素的中值来替代中心像素的值。这个滤波器经常用来去除<strong>椒盐噪声</strong>。前面的滤波器都是用计算得到的一个新值来取代中心像素的值，而中值滤波是用<strong>中心像素周围（也可以使他本身）的值来取代他</strong>。他能有效的去除噪声。卷积核的大小也应该是一个奇数。在这个例子中，我们给原始图像加上 50% 的噪声然后再使用中值模糊。</p>
+<p>下面是示例代码：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<h4 id="双边滤波"><a href="#双边滤波" class="headerlink" title="双边滤波"></a>双边滤波</h4><p>双边滤波在同时使用空间高斯权重和灰度值相似性高斯权重。空间高斯函数确保只有邻近区域的像素对中心点有影响，灰度值相似性高斯函数确保只有与中心像素灰度值相近的才会被用来做模糊运算。所以这种方法会<strong>确保边界不会被模糊掉</strong>，因为边界处的灰度值变化比较大。</p>
+<p>下面是示例代码：</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>运行结果：</p>
+<h3 id="4-OpenCV进行边缘检测"><a href="#4-OpenCV进行边缘检测" class="headerlink" title="4.OpenCV进行边缘检测"></a>4.OpenCV进行边缘检测</h3>
     </div>
 
     
@@ -395,7 +505,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%80%E3%80%81OpenCV%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%AE%89%E8%A3%85"><span class="nav-text">阶段一、OpenCV介绍和安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B6%E6%AE%B5%E4%BA%8C%E3%80%81OpenCV%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-text">阶段二、OpenCV的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-OpenCV%E8%BF%9B%E8%A1%8C%E5%9B%BE%E5%83%8F%E7%9A%84%E8%AF%BB%E5%86%99"><span class="nav-text">1. OpenCV进行图像的读写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-OpenCV%E8%AF%BB%E5%8F%96%E8%A7%86%E9%A2%91%E5%92%8C%E6%91%84%E5%83%8F%E5%A4%B4"><span class="nav-text">2. OpenCV读取视频和摄像头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-OpenCV%E5%9C%A8%E5%9B%BE%E5%83%8F%E4%B8%8A%E9%9D%A2%E6%B7%BB%E5%8A%A0%E6%96%87%E5%AD%97"><span class="nav-text">3.OpenCV在图像上面添加文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-OpenCV%E8%8E%B7%E5%8F%96%E5%83%8F%E7%B4%A0%E5%80%BC%E5%B9%B6%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9"><span class="nav-text">4.OpenCV获取像素值并进行修改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%89%E3%80%81OpenCV%E7%9A%84%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95"><span class="nav-text">阶段三、OpenCV的图像处理方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-OpenCV%E8%BF%9B%E8%A1%8C%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2"><span class="nav-text">1.OpenCV进行几何变换</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%80%E3%80%81OpenCV%E4%BB%8B%E7%BB%8D%E5%92%8C%E5%AE%89%E8%A3%85"><span class="nav-text">阶段一、OpenCV介绍和安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B6%E6%AE%B5%E4%BA%8C%E3%80%81OpenCV%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-text">阶段二、OpenCV的基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-OpenCV%E8%BF%9B%E8%A1%8C%E5%9B%BE%E5%83%8F%E7%9A%84%E8%AF%BB%E5%86%99"><span class="nav-text">1. OpenCV进行图像的读写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-OpenCV%E8%AF%BB%E5%8F%96%E8%A7%86%E9%A2%91%E5%92%8C%E6%91%84%E5%83%8F%E5%A4%B4"><span class="nav-text">2. OpenCV读取视频和摄像头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-OpenCV%E5%9C%A8%E5%9B%BE%E5%83%8F%E4%B8%8A%E9%9D%A2%E6%B7%BB%E5%8A%A0%E6%96%87%E5%AD%97"><span class="nav-text">3.OpenCV在图像上面添加文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-OpenCV%E8%8E%B7%E5%8F%96%E5%83%8F%E7%B4%A0%E5%80%BC%E5%B9%B6%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9"><span class="nav-text">4.OpenCV获取像素值并进行修改</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%89%E3%80%81OpenCV%E7%9A%84%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95"><span class="nav-text">阶段三、OpenCV的图像处理方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-OpenCV%E8%BF%9B%E8%A1%8C%E5%87%A0%E4%BD%95%E5%8F%98%E6%8D%A2"><span class="nav-text">1.OpenCV进行几何变换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%B1%95%E7%BC%A9%E6%94%BE"><span class="nav-text">扩展缩放</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E7%A7%BB"><span class="nav-text">平移</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%8B%E8%BD%AC"><span class="nav-text">旋转</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2"><span class="nav-text">仿射变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%8F%E8%A7%86%E5%8F%98%E6%8D%A2"><span class="nav-text">透视变换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-OpenCV%E8%BF%9B%E8%A1%8C%E5%BD%A2%E6%80%81%E5%AD%A6%E8%BD%AC%E6%8D%A2"><span class="nav-text">2.OpenCV进行形态学转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%85%90%E8%9A%80"><span class="nav-text">腐蚀</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%86%A8%E8%83%80"><span class="nav-text">膨胀</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E5%BD%A2%E6%80%81%E5%AD%A6%E6%93%8D%E4%BD%9C"><span class="nav-text">其他形态学操作</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-OpenCV%E8%BF%9B%E8%A1%8C%E5%9B%BE%E5%83%8F%E5%B9%B3%E6%BB%91"><span class="nav-text">3.OpenCV进行图像平滑</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2D%E5%8D%B7%E7%A7%AF"><span class="nav-text">2D卷积</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E5%9D%87"><span class="nav-text">平均</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A"><span class="nav-text">高斯模糊</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%AD%E5%80%BC%E6%A8%A1%E7%B3%8A"><span class="nav-text">中值模糊</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%8C%E8%BE%B9%E6%BB%A4%E6%B3%A2"><span class="nav-text">双边滤波</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-OpenCV%E8%BF%9B%E8%A1%8C%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B"><span class="nav-text">4.OpenCV进行边缘检测</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -411,20 +521,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -449,7 +559,7 @@
     <h3 class="widget-title">标签云</h3>
     <div id="myCanvasContainer" class="widget tagcloud">
         <canvas width="250" height="250" id="resCanvas" style="width=100%">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OCR/" rel="tag">OCR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyQt/" rel="tag">PyQt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/classfication/" rel="tag">classfication</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paddle/" rel="tag">paddle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%89%E7%BA%A7/" rel="tag">三级</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" rel="tag">信号与系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" rel="tag">傅里叶变换</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" rel="tag">学习计划</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" rel="tag">目标检测</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CV/" rel="tag">CV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OCR/" rel="tag">OCR</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PyQt/" rel="tag">PyQt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/classfication/" rel="tag">classfication</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/paddle/" rel="tag">paddle</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/pytorch/" rel="tag">pytorch</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh/" rel="tag">ssh</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%89%E7%BA%A7/" rel="tag">三级</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F/" rel="tag">信号与系统</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" rel="tag">傅里叶变换</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/" rel="tag">学习计划</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%AE%E6%A0%87%E6%A3%80%E6%B5%8B/" rel="tag">目标检测</a><span class="tag-list-count">1</span></li></ul>
         </canvas>
     </div>
 </div>
@@ -482,12 +592,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">36k</span>
+    <span title="站点总字数">43k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">33 分钟</span>
+    <span title="站点阅读时长">39 分钟</span>
 </div>
 <!--
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
