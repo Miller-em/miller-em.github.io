@@ -75,6 +75,10 @@ default_category: uncategorized
 category_map:
 tag_map:
 
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
 
 baidu_url_submit:
   count: 5 ## 提交最新的五个链接
