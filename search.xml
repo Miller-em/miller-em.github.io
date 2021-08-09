@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>2021-八月学习计划</title>
+      <link href="2021/08/09/Plans/2021_08/"/>
+      <url>2021/08/09/Plans/2021_08/</url>
+      
+        <content type="html"><![CDATA[<p>电赛延期了，这个月就回家了，在家里，更是一个提高自我能力的机会，根据自己的能力查漏补缺，所以制定了初步的计划，对于上个月准备电赛和AI-C4时间比较紧，所以算法题的练习，没有坚持。这个月仍然计划每天都要刷两道LeetCode，提高代码水平。</p><p><img src="https://cdn.jsdelivr.net/gh/Miller-em/IMAGS/img/20210415180054.gif" alt=""></p><h2 id="本月计划"><a href="#本月计划" class="headerlink" title="本月计划"></a>本月计划</h2><p><strong>必须完成部分：</strong></p><ul><li>[ ] 每日两题LeetCode</li><li>[ ] 每天晚上跟着李沐大神敲AI</li><li>[X] 初步学Qt</li><li>[ ] 初步完成一个简易的串口示波器框架，能完成PID的调节</li><li>[ ] 完成Vienna整流电路的算法, 调试好AD7606模块</li><li>[ ] 通信组网的互联网作品设计</li><li>[ ] Android开发学习，学完Qt就跟着学</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习计划 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习计划 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>白嫖LeetCode代码补全</title>
       <link href="2021/08/06/%E9%97%AE%E9%A2%98_%E8%A7%A3%E5%86%B3/leetcode/"/>
       <url>2021/08/06/%E9%97%AE%E9%A2%98_%E8%A7%A3%E5%86%B3/leetcode/</url>
